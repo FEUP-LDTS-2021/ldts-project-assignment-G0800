@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.feup.ldts'
+group 'com.ldts.donkeykong'
 version '1.0'
 
 repositories {
