@@ -1,5 +1,7 @@
 package com.ldts.donkeykong.model.dynamic;
 
-public abstract class DynamicObject implements Movement {
+import com.ldts.donkeykong.model.GameObject;
+
+public abstract class DynamicObject extends GameObject implements Movement {
     public abstract void move();
 }

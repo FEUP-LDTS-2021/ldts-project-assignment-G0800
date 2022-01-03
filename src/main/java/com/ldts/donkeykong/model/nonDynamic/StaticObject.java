@@ -1,4 +1,7 @@
 package com.ldts.donkeykong.model.nonDynamic;
 
-public abstract class StaticObject {
+import com.ldts.donkeykong.model.GameObject;
+
+public abstract class StaticObject extends GameObject {
+
 }

@@ -1,7 +1,7 @@
 package com.ldts.donkeykong.model;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.ldts.donkeykong.model.dynamic.Position;
+import com.ldts.donkeykong.model.base.Position;
 
 public abstract class GameObject  {
     protected Position position;
@@ -15,5 +15,6 @@ public abstract class GameObject  {
         return position;
     }
 
-    public abstract void draw(TextGraphics graphics);
+    //TODO
+    public abstract void draw();
 }

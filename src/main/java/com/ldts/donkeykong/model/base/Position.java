@@ -1,4 +1,4 @@
-package com.ldts.donkeykong.model.dynamic;
+package com.ldts.donkeykong.model.base;
 
 public class Position {
 

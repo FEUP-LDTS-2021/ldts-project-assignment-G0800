@@ -1,9 +1,9 @@
 package com.ldts.donkeykong.model.dynamic;
 
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.ldts.donkeykong.model.GameObject;
+import com.ldts.donkeykong.model.base.Position;
 
-public class Barrel extends GameObject {
+public class Barrel extends DynamicObject {
     private boolean fiery;
 
     public Barrel(Position p, boolean f) {
@@ -15,11 +15,13 @@ public class Barrel extends GameObject {
         return this.fiery;
     }
 
+    //TODO
     @Override
-    public void draw(TextGraphics graphics) {
+    public void draw() {
 
     }
 
+    //TODO
     public void move() {
 
     }
