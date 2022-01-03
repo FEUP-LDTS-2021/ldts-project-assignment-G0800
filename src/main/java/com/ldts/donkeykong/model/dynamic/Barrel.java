@@ -1,6 +1,7 @@
-package com.ldts.donkeykong.model;
+package com.ldts.donkeykong.model.dynamic;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.ldts.donkeykong.model.GameObject;
 
 public class Barrel extends GameObject {
     private boolean fiery;

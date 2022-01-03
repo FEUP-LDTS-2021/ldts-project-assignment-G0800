@@ -1,9 +1,10 @@
-package com.ldts.donkeykong.model;
+package com.ldts.donkeykong.model.dynamic;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.ldts.donkeykong.model.GameObject;
 
-public class FireEnemy extends GameObject {
-    public FireEnemy(Position p) {
+public class Hammer extends GameObject {
+    public Hammer(Position p) {
         this.position = p;
     }
 
