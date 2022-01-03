@@ -1,8 +1,9 @@
 package com.ldts.donkeykong.model;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.ldts.donkeykong.model.dynamic.Position;
 
-public abstract class GameObject implements DynamicObject{
+public abstract class GameObject  {
     protected Position position;
     protected TextGraphics graphics;
 
