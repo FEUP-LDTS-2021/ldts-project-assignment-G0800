@@ -14,27 +14,36 @@ public class Position {
         this.x = x;
     }
 
-    public int getX() {
-        return x;
-    }
-
     public void setY(int y) {
         this.y = y;
+    }
+
+    public int getX() {
+        return x;
     }
 
     public int getY() {
         return y;
     }
 
+    public Position getUp(){
+        return new Position(0,0);
+    }
+
+    public Position getDown(){
+        return new Position(0,0);
+    }
+
+    public Position getLeft(){
+        return new Position(0,0);
+    }
+
+    public Position getRight(){
+        return new Position(0,0);
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (o == null) return false;
-
-        if (getClass() != o.getClass()) return false;
-
-        Position p = (Position) o;
-        return x == p.getX() && y == p.getY();
+        return false;
     }
 }

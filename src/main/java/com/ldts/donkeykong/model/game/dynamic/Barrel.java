@@ -1,9 +1,8 @@
 package com.ldts.donkeykong.model.dynamic;
 
-import com.ldts.donkeykong.model.GameObject;
 import com.ldts.donkeykong.model.base.Position;
 
-public class Barrel extends DynamicObject {
+public class Barrel extends DynamicElement {
     private boolean fiery;
 
     public Barrel(Position p, boolean f) {

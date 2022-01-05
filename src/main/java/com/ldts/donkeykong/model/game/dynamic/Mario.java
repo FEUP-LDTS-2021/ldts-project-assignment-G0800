@@ -1,9 +1,8 @@
 package com.ldts.donkeykong.model.dynamic;
 
-import com.ldts.donkeykong.model.GameObject;
 import com.ldts.donkeykong.model.base.Position;
 
-public class Mario extends DynamicObject {
+public class Mario extends DynamicElement {
     private boolean alive;
     private Position position;
 

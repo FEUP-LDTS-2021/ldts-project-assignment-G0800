@@ -1,11 +1,14 @@
 package com.ldts.donkeykong.model.nonDynamic;
 
-import com.ldts.donkeykong.model.dynamic.DynamicObject;
-
-public class Ladder extends StaticObject {
+public class OilBarrel extends StaticElement {
     @Override
     //TODO
     public void draw() {
+
+    }
+
+    //TODO
+    public void drawFlame() {
 
     }
 }

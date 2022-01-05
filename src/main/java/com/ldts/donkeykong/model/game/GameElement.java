@@ -3,7 +3,7 @@ package com.ldts.donkeykong.model;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.ldts.donkeykong.model.base.Position;
 
-public abstract class GameObject  {
+public abstract class GameElement {
     protected Position position;
     protected TextGraphics graphics;
 
