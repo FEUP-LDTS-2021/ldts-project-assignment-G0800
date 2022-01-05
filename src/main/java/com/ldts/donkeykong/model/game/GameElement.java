@@ -1,11 +1,10 @@
-package com.ldts.donkeykong.model;
+package com.ldts.donkeykong.model.game;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.ldts.donkeykong.model.base.Position;
 
 public abstract class GameElement {
     protected Position position;
-    protected TextGraphics graphics;
 
     public void setPosition(Position position) {
         this.position = position;
@@ -15,6 +14,5 @@ public abstract class GameElement {
         return position;
     }
 
-    //TODO
     public abstract void draw();
 }
