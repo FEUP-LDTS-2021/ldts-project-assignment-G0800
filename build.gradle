@@ -14,7 +14,8 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     // https://mvnrepository.com/artifact/com.googlecode.lanterna/lanterna
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
-
+    // https://mvnrepository.com/artifact/org.mockito/mockito-all
+    testImplementation group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
 }
 
 test {
