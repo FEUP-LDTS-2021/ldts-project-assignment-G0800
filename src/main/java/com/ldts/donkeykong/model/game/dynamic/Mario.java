@@ -4,7 +4,6 @@ import com.ldts.donkeykong.model.base.Position;
 
 public class Mario extends DynamicElement {
     private boolean alive;
-    private Position position;
 
     public Mario(Position position) {
         super(position);
