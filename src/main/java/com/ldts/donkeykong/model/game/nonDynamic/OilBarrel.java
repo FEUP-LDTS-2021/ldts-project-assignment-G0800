@@ -1,14 +1,9 @@
 package com.ldts.donkeykong.model.game.nonDynamic;
 
+import com.ldts.donkeykong.model.base.Position;
+
 public class OilBarrel extends StaticElement {
-    @Override
-    //TODO
-    public void draw() {
-
-    }
-
-    //TODO
-    public void drawFlame() {
-
+    public OilBarrel(Position position) {
+        super(position);
     }
 }
