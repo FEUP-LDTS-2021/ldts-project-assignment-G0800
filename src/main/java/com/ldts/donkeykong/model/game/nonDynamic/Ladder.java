@@ -1,9 +1,9 @@
 package com.ldts.donkeykong.model.game.nonDynamic;
 
-public class Ladder extends StaticElement {
-    @Override
-    //TODO
-    public void draw() {
+import com.ldts.donkeykong.model.base.Position;
 
+public class Ladder extends StaticElement {
+    public Ladder(Position position) {
+        super(position);
     }
 }
