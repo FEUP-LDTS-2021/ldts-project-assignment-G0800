@@ -45,7 +45,7 @@ public class PositionTest {
     @Test
     public void getDownTest() {
         Assertions.assertEquals(8, p.getDown().getX());
-        Assertions.assertEquals(3, p.getDown().getX());
+        Assertions.assertEquals(3, p.getDown().getY());
     }
 
     @Test
