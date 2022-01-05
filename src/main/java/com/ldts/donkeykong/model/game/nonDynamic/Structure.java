@@ -1,4 +1,4 @@
-package com.ldts.donkeykong.model.nonDynamic;
+package com.ldts.donkeykong.model.game.nonDynamic;
 
 public class Structure extends StaticElement {
     //TODO
