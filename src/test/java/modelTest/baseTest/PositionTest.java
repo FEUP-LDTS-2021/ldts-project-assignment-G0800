@@ -10,14 +10,8 @@ public class PositionTest {
     Position p;
 
     @BeforeEach
-    public void helper() { p = new Position(7,3); }
-
-
-    @Test
-    public void constructorTest() {
-        Position positionConstructor = new Position(2,6);
-        Assertions.assertEquals(2, positionConstructor.getX());
-        Assertions.assertEquals(6,positionConstructor.getY());
+    public void helper() {
+        p = new Position(7,3);
     }
 
     @Test
