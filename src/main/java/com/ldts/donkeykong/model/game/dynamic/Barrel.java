@@ -13,15 +13,4 @@ public class Barrel extends DynamicElement {
     public boolean isFiery() {
         return this.fiery;
     }
-
-    //TODO
-    @Override
-    public void draw() {
-
-    }
-
-    //TODO
-    public void move() {
-
-    }
 }
