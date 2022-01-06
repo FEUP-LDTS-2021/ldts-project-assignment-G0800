@@ -4,16 +4,17 @@ import com.ldts.donkeykong.model.base.Position;
 
 public class Score extends StaticElement {
     private int score;
-    public Score(Position position, int score) {
+    public Score(Position position) {
         super(position);
-        this.score = score;
+        this.score = 0;
     }
 
     public int getScore() {
-        return 0;
+        return score;
     }
 
-    public void setScore(int score) {
 
+    public void setScore(int score) {
+        this.score = score;
     }
 }
