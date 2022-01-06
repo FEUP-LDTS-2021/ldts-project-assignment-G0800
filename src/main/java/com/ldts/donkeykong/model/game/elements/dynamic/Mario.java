@@ -1,4 +1,4 @@
-package com.ldts.donkeykong.model.game.dynamic;
+package com.ldts.donkeykong.model.game.elements.dynamic;
 
 import com.ldts.donkeykong.model.base.Position;
 
