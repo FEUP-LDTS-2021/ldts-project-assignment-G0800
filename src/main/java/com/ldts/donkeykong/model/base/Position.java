@@ -10,6 +10,11 @@ public class Position {
         this.y = y;
     }
 
+    public Position(Position p) {
+        this.x = p.getX();
+        this.y = p.getY();
+    }
+
     public void setX(int x) {
         this.x = x;
     }
