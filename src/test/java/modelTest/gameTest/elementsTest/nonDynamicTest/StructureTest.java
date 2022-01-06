@@ -1,7 +1,7 @@
-package modelTest.gameTest.nonDynamicTest;
+package modelTest.gameTest.elementsTest.nonDynamicTest;
 
 import com.ldts.donkeykong.model.base.Position;
-import com.ldts.donkeykong.model.game.nonDynamic.Structure;
+import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

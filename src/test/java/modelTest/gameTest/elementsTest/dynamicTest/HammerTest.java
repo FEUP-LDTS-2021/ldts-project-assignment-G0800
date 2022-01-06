@@ -1,7 +1,6 @@
-package modelTest.gameTest.dynamicTest;
+package modelTest.gameTest.elementsTest.dynamicTest;
 import com.ldts.donkeykong.model.base.Position;
-import com.ldts.donkeykong.model.game.dynamic.FireEnemy;
-import com.ldts.donkeykong.model.game.dynamic.Hammer;
+import com.ldts.donkeykong.model.game.elements.dynamic.Hammer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
