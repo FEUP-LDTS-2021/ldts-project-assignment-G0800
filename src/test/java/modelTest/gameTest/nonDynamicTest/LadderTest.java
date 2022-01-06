@@ -17,12 +17,13 @@ public class LadderTest {
         Assertions.assertEquals(l.getStairs().get(4).getPosition().getX(),1);
 
 
-        Ladder l2 = new Ladder(new Position(10,4),5);
+        Ladder l2 = new Ladder(new Position(10,4),6);
         Assertions.assertEquals(l2.getStairs().get(0).getPosition().getX(),10);
         Assertions.assertEquals(l2.getStairs().get(1).getPosition().getX(),9);
         Assertions.assertEquals(l2.getStairs().get(2).getPosition().getX(),8);
         Assertions.assertEquals(l2.getStairs().get(3).getPosition().getX(),7);
         Assertions.assertEquals(l2.getStairs().get(4).getPosition().getX(),6);
-        Assertions.assertEquals(l2.getStairs().get(0).getPosition().getY(),5);
+        Assertions.assertEquals(l2.getStairs().get(0).getPosition().getY(),4);
+        Assertions.assertEquals(l2.getStairs().get(1).getPosition().getY(),4);
     }
 }
