@@ -20,9 +20,9 @@ public class Mario extends DynamicElement {
         this.alive = false;
     }
 
-    public int getScore(){ }
+    public int getScore(){ return score;}
 
     public void increaseScore(){
-
+        score += 100;
     }
 }
