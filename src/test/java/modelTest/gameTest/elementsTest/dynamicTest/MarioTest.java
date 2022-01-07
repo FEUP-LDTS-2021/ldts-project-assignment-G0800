@@ -32,4 +32,20 @@ public class MarioTest {
         mario.setAsDead();
         Assertions.assertFalse(mario.isAlive());
     }
+
+    @Test
+    public void marioGetScoreTest() {
+        Assertions.assertEquals(0,mario.getScore());
+    }
+
+    @Test
+    public void marioUpdateScoreTest() {
+        mario.increaseScore();
+        Assertions.assertEquals(100, mario.getScore());
+        mario.increaseScore();
+        mario.increaseScore();
+        Assertions.assertEquals(300, mario.getScore());
+        mario.increaseScore();
+        Assertions.assertNotEquals(500, mario.getScore());
+    }
 }

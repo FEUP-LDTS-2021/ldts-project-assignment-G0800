@@ -4,10 +4,12 @@ import com.ldts.donkeykong.model.base.Position;
 
 public class Mario extends DynamicElement {
     private boolean alive;
+    private int score;
 
     public Mario(Position position) {
         super(position);
         this.alive = true;
+        score=0;
     }
 
     public boolean isAlive() {
@@ -16,5 +18,11 @@ public class Mario extends DynamicElement {
 
     public void setAsDead() {
         this.alive = false;
+    }
+
+    public int getScore(){ return score;}
+
+    public void increaseScore(){
+        score += 100;
     }
 }
