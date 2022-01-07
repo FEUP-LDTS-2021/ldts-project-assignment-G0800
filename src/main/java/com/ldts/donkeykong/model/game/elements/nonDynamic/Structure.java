@@ -17,7 +17,7 @@ public class Structure extends StaticElement {
         Stair stair = new Stair(position);
         stairs.add(stair);
         for (int index = 0; index < width-1; index++) {
-            Position newPosition = new Position(stair.getPosition().getUp());
+            Position newPosition = new Position(stair.getPosition().getRight());
             stair = new Stair(newPosition);
             stairs.add(stair);
         }
