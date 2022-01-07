@@ -119,7 +119,7 @@ public class Arena {
 
     public boolean isBarrel(Position position) {
         for (Barrel b: barrels) {
-            if (b.getPosition() == position) {
+            if (b.getPosition().equals(position)) {
                 return true;
             }
         }
@@ -128,7 +128,7 @@ public class Arena {
 
     public boolean isFireEnemy(Position position) {
         for (FireEnemy fe: fireEnemies) {
-            if (fe.getPosition() == position) {
+            if (fe.getPosition().equals(position)) {
                 return true;
             }
         }
@@ -136,7 +136,7 @@ public class Arena {
     }
 
     public boolean isPrincess(Position position) {
-        if(princess.getPosition() == position) {
+        if(princess.getPosition().equals(position)) {
             return true;
         }
         return false;
@@ -145,7 +145,7 @@ public class Arena {
     public boolean isLadder(Position position){
         for (Ladder l: ladders) {
             for (Stair s: l.getStairs()) {
-                if(s.getPosition() == position) {
+                if(s.getPosition().equals(position)) {
                     return true;
                 }
             }
@@ -154,14 +154,14 @@ public class Arena {
     }
 
     public boolean isHammer(Position position){
-        if (hammer.getPosition() == position) {
+        if (hammer.getPosition().equals(position)) {
             return true;
         }
         return false;
     }
 
     public boolean isOilBarrel(Position position){
-        if (oilBarrel.getPosition() == position) {
+        if (oilBarrel.getPosition().equals(position)) {
             return true;
         }
         return false;

@@ -32,6 +32,7 @@ public class ArenaTest {
     private ArrayList<FireEnemy> createFireEnemies(ArrayList<FireEnemy> fireEnemies) {
         FireEnemy fireEnemy = Mockito.mock(FireEnemy.class);
         Mockito.when(fireEnemy.getPosition()).thenReturn(new Position(4,3));
+        //FireEnemy fireEnemy = new FireEnemy(new Position(4,3));
         for(int i = 0; i < 5; i++) {
             fireEnemies.add(fireEnemy);
         }
@@ -59,6 +60,8 @@ public class ArenaTest {
     public void helper() {
         arena = new Arena(10,10);
         barrels = new ArrayList<>();
+        fireEnemies = new ArrayList<>();
+        ladders = new ArrayList<>();
         arena.setDonkey(new Donkey(new Position(1,1)));
         arena.setBarrels(createBarrels(barrels));
         arena.setFireEnemies(createFireEnemies(fireEnemies));
