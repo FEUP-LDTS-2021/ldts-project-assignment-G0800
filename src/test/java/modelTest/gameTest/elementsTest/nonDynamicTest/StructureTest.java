@@ -1,6 +1,7 @@
 package modelTest.gameTest.elementsTest.nonDynamicTest;
 
 import com.ldts.donkeykong.model.base.Position;
+import com.ldts.donkeykong.model.game.elements.nonDynamic.Ladder;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,13 +14,20 @@ public class StructureTest {
 
     @BeforeEach
     public void beforeEach() {
-        p = new Position(2,8);
-        structure = new Structure(p);
+        p = new Position(2,2);
+        structure = new Structure(p,5);
     }
 
     @Test
     public void constructorTest() {
-        Assertions.assertEquals(p.getX(), structure.getPosition().getX());
-        Assertions.assertEquals(p.getY(), structure.getPosition().getY());
+        Assertions.assertEquals(structure.getStairs().get(0).getPosition().getY(),2);
+        Assertions.assertEquals(structure.getStairs().get(1).getPosition().getY(),3);
+        Assertions.assertEquals(structure.getStairs().get(2).getPosition().getY(),4);
+        Assertions.assertEquals(structure.getStairs().get(3).getPosition().getY(),5);
+        Assertions.assertEquals(structure.getStairs().get(4).getPosition().getY(),6);
+
+        Structure newStructure = new Structure(new Position(1,2),1);
+        Assertions.assertEquals(newStructure.getStairs().get(0).getPosition().getY(), 2);
+        Assertions.assertNotEquals(newStructure.getStairs().get(0).getPosition().getY(), 1);
     }
 }
