@@ -3,28 +3,21 @@ package modelTest.gameTest.arenaTest;
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.arena.ArenaBuilderLoader;
-import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.Princess;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 
 public class ArenaBuilderLoaderTest {
 
     ArenaBuilderLoader abl;
-    BufferedReader br;
 
     @BeforeEach
     public void helper() {
         int level = 1;
         try {
-            abl = new ArenaBuilderLoader(1);
+            abl = new ArenaBuilderLoader(level);
         } catch (IOException i) {
             System.out.println(i.getMessage());
         }
