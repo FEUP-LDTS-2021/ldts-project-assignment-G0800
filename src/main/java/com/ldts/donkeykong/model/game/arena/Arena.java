@@ -7,11 +7,7 @@ import com.ldts.donkeykong.model.game.elements.dynamic.FireEnemy;
 import com.ldts.donkeykong.model.game.elements.dynamic.Hammer;
 import com.ldts.donkeykong.model.game.elements.dynamic.Mario;
 
-import com.ldts.donkeykong.model.game.elements.nonDynamic.Ladder;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.Princess;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.Score;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
+import com.ldts.donkeykong.model.game.elements.nonDynamic.*;
 
 import java.util.List;
 
@@ -35,114 +31,145 @@ public class Arena {
     }
 
     public int getWidth() {
-        return 0;
+        return width;
     }
 
     public int getHeight() {
-        return 0;
+        return height;
     }
 
-    public void setWidth(int width) {}
-
-    public void setHeight(int height) {}
-
     public List<Barrel> getBarrels() {
-        return null;
+        return barrels;
     }
 
     public void setBarrels(List<Barrel> barrels) {
-
+        this.barrels = barrels;
     }
 
     public Donkey getDonkey() {
-        return null;
+        return donkey;
     }
 
-    public void setDonkey(Donkey donkey) {}
+    public void setDonkey(Donkey donkey) {
+        this.donkey = donkey;
+    }
 
     public List<FireEnemy> getFireEnemies() {
-        return null;
+        return fireEnemies;
     }
 
-    public void setFireEnemies(List<FireEnemy> fireEnemies) {}
+    public void setFireEnemies(List<FireEnemy> fireEnemies) {
+        this.fireEnemies = fireEnemies;
+    }
 
     public Hammer getHammer() {
-        return null;
+        return hammer;
     }
 
-    public void setHammer(Hammer hammer) {}
+    public void setHammer(Hammer hammer) {
+        this.hammer = hammer;
+    }
 
     public Mario getMario() {
-        return null;
+        return mario;
     }
 
     public void setMario(Mario mario) {
-
+        this.mario = mario;
     }
 
     public OilBarrel getOilBarrel() {
-        return null;
+        return oilBarrel;
     }
 
     public void setOilBarrel(OilBarrel oilBarrel) {
-
+        this.oilBarrel = oilBarrel;
     }
 
     public Princess getPrincess(){
-        return null;
+        return princess;
     }
 
     public void setPrincess(Princess princess) {
-
+        this.princess = princess;
     }
 
     public Score getScore(){
-        return null;
+        return score;
     }
 
-    public void setScore(int score) {
-
+    public void setScore(Score score) {
+        this.score = score;
     }
 
     public List<Ladder> getLadders(){
-        return null;
+        return ladders;
     }
 
-    public void setLadders(List<Ladder> ladders) {}
+    public void setLadders(List<Ladder> ladders) { this.ladders = ladders; }
 
     public List<Structure> getStructures() {
-        return null;
+        return structures;
     }
 
     public void setStructures(List<Structure> structures) {
-
+        this.structures = structures;
     }
 
     public boolean isEmpty(Position position) {
-        return false;
+        if (position.getX() < 0 || position.getX() > width || position.getY() < 0 || position.getY() > height) {
+            return false;
+        }
+        return true;
     }
 
     public boolean isBarrel(Position position) {
+        for (Barrel b: barrels) {
+            if (b.getPosition() == position) {
+                return true;
+            }
+        }
         return false;
     }
 
     public boolean isFireEnemy(Position position) {
+        for (FireEnemy fe: fireEnemies) {
+            if (fe.getPosition() == position) {
+                return true;
+            }
+        }
         return false;
     }
 
     public boolean isPrincess(Position position) {
+        if(princess.getPosition() == position) {
+            return true;
+        }
         return false;
     }
 
     public boolean isLadder(Position position){
+        for (Ladder l: ladders) {
+            for (Stair s: l.getStairs()) {
+                if(s.getPosition() == position) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     public boolean isHammer(Position position){
+        if (hammer.getPosition() == position) {
+            return true;
+        }
         return false;
     }
 
     public boolean isOilBarrel(Position position){
+        if (oilBarrel.getPosition() == position) {
+            return true;
+        }
         return false;
     }
 }

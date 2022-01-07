@@ -4,6 +4,7 @@ import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
 import com.ldts.donkeykong.model.game.elements.dynamic.Donkey;
+import com.ldts.donkeykong.model.game.elements.nonDynamic.Score;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +20,7 @@ public class ArenaTest {
         arena = new Arena(10,10);
         barrels = new ArrayList<>();
         arena.setDonkey(new Donkey(new Position(1,1)));
-        arena.setScore(0);
+        arena.setScore(new Score(new Position(10, 5)));
         arena.setBarrels(createBarrels(barrels));
     }
 
@@ -38,20 +39,8 @@ public class ArenaTest {
     }
 
     @Test
-    public void setWidthTest() {
-        arena.setWidth(70);
-        Assertions.assertEquals(70, arena.getWidth());
-    }
-
-    @Test
     public void getHeightTest() {
         Assertions.assertEquals(10, arena.getHeight());
-    }
-
-    @Test
-    public void setHeightTest() {
-        arena.setHeight(50);
-        Assertions.assertEquals(50, arena.getHeight());
     }
 
     @Test
