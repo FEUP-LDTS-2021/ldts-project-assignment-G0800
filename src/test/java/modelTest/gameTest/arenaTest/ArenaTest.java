@@ -2,14 +2,10 @@ package modelTest.gameTest.arenaTest;
 
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
-<<<<<<< HEAD
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
 import com.ldts.donkeykong.model.game.elements.dynamic.Donkey;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.Score;
-=======
 import com.ldts.donkeykong.model.game.elements.dynamic.*;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.*;
->>>>>>> 1d23405b3eaaeb39c4640f6be9d83ebf576840e8
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -64,10 +60,6 @@ public class ArenaTest {
         arena = new Arena(10,10);
         barrels = new ArrayList<>();
         arena.setDonkey(new Donkey(new Position(1,1)));
-<<<<<<< HEAD
-        arena.setScore(new Score(new Position(10, 5)));
-=======
->>>>>>> 1d23405b3eaaeb39c4640f6be9d83ebf576840e8
         arena.setBarrels(createBarrels(barrels));
         arena.setFireEnemies(createFireEnemies(fireEnemies));
         arena.setLadders(createLadders(ladders));
