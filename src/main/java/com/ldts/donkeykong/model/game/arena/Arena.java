@@ -6,15 +6,11 @@ import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
 import com.ldts.donkeykong.model.game.elements.dynamic.FireEnemy;
 import com.ldts.donkeykong.model.game.elements.dynamic.Hammer;
 import com.ldts.donkeykong.model.game.elements.dynamic.Mario;
-
-<<<<<<< HEAD
 import com.ldts.donkeykong.model.game.elements.nonDynamic.*;
-=======
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Ladder;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Princess;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
->>>>>>> 1d23405b3eaaeb39c4640f6be9d83ebf576840e8
 
 import java.util.List;
 
