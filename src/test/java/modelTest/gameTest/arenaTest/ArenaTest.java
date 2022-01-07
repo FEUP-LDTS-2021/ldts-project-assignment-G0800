@@ -59,6 +59,8 @@ public class ArenaTest {
     public void helper() {
         arena = new Arena(10,10);
         barrels = new ArrayList<>();
+        fireEnemies = new ArrayList<>();
+        ladders = new ArrayList<>();
         arena.setDonkey(new Donkey(new Position(1,1)));
         arena.setBarrels(createBarrels(barrels));
         arena.setFireEnemies(createFireEnemies(fireEnemies));
