@@ -10,7 +10,6 @@ import com.ldts.donkeykong.model.game.elements.dynamic.Mario;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Ladder;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Princess;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.Score;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 
 import java.util.List;
@@ -23,7 +22,6 @@ public class Arena {
     private Princess princess;
     private OilBarrel oilBarrel;
     private Hammer hammer;
-    private Score score;
     private List<Structure> structures;
     private List<Ladder> ladders;
     private List<FireEnemy> fireEnemies;
@@ -93,14 +91,6 @@ public class Arena {
     }
 
     public void setPrincess(Princess princess) {
-
-    }
-
-    public Score getScore(){
-        return null;
-    }
-
-    public void setScore(int score) {
 
     }
 
