@@ -5,12 +5,23 @@ import com.ldts.donkeykong.model.game.elements.dynamic.*;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Ladder;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Princess;
+import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 
 import java.util.List;
 
 public abstract class ArenaBuilder {
     public Arena createArena() {
-        return null;
+        Arena arena = new Arena(getWidth(), getHeight());
+        arena.setBarrels(createBarrels());
+        arena.setDonkey(createDonkey());
+        arena.setFireEnemies(createFireEnemies());
+        arena.setHammer(createHammer());
+        arena.setMario(createMario());
+        arena.setLadders(createLadders());
+        arena.setOilBarrel(createOilBarrel());
+        arena.setStructures(createStructures());
+        arena.setPrincess(createPrincess());
+        return arena;
     }
 
     protected abstract int getWidth();
@@ -32,4 +43,6 @@ public abstract class ArenaBuilder {
     protected abstract Hammer createHammer();
 
     protected abstract OilBarrel createOilBarrel();
+
+    protected abstract List<Structure> createStructures();
 }
