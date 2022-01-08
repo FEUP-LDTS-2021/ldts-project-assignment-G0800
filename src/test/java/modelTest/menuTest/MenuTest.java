@@ -73,7 +73,7 @@ public class MenuTest {
         menu.nextEntry();
         Assertions.assertFalse(menu.isSelectedExit());
         menu.nextEntry();
-        Assertions.assertFalse(menu.isSelectedExit());
+        Assertions.assertTrue(menu.isSelectedExit());
     }
 
     @Test
