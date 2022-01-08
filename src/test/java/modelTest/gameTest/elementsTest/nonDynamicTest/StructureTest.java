@@ -20,14 +20,16 @@ public class StructureTest {
 
     @Test
     public void constructorTest() {
-        Assertions.assertEquals(structure.getStairs().get(0).getPosition().getY(),2);
-        Assertions.assertEquals(structure.getStairs().get(1).getPosition().getY(),3);
-        Assertions.assertEquals(structure.getStairs().get(2).getPosition().getY(),4);
-        Assertions.assertEquals(structure.getStairs().get(3).getPosition().getY(),5);
-        Assertions.assertEquals(structure.getStairs().get(4).getPosition().getY(),6);
+        Assertions.assertEquals(5, structure.getStairs().size());
+        Assertions.assertEquals(2, structure.getStairs().get(0).getPosition().getX());
+        Assertions.assertEquals(3, structure.getStairs().get(1).getPosition().getX());
+        Assertions.assertEquals(4, structure.getStairs().get(2).getPosition().getX());
+        Assertions.assertEquals(5, structure.getStairs().get(3).getPosition().getX());
+        Assertions.assertEquals(6, structure.getStairs().get(4).getPosition().getX());
 
         Structure newStructure = new Structure(new Position(1,2),1);
-        Assertions.assertEquals(newStructure.getStairs().get(0).getPosition().getY(), 2);
-        Assertions.assertNotEquals(newStructure.getStairs().get(0).getPosition().getY(), 1);
+        Assertions.assertEquals(1, newStructure.getStairs().size());
+        Assertions.assertEquals(2, newStructure.getStairs().get(0).getPosition().getY());
+        Assertions.assertNotEquals(1,newStructure.getStairs().get(0).getPosition().getY());
     }
 }
