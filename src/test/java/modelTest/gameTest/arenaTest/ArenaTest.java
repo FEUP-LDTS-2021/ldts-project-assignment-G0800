@@ -68,6 +68,23 @@ public class ArenaTest {
         return stairs;
     }
 
+    private ArrayList<Stair> createStairsStructure() {
+        ArrayList<Stair> stairs = new ArrayList<>();
+        for (int i = 1; i <= 7; i++) {
+            stairs.add(new Stair(new Position(5,i)));
+        }
+        return stairs;
+    }
+
+    private ArrayList<Structure> createStructure(ArrayList<Structure> structures) {
+        Structure structure = Mockito.mock(Structure.class);
+        Mockito.when(structure.getStairs()).thenReturn(createStairsStructure());
+        for(int i = 0; i < 3; i++) {
+            structures.add(structure);
+        }
+        return structures;
+    }
+
     private ArrayList<Ladder> createLadders(ArrayList<Ladder> ladders) {
         Ladder ladder = Mockito.mock(Ladder.class);
         Mockito.when(ladder.getStairs()).thenReturn(createStairs());
@@ -187,12 +204,14 @@ public class ArenaTest {
 
     @Test
     public void getStructuresTest() {
-
+        Assertions.assertEquals(structures, arena.getStructures());
     }
 
     @Test
     public void setStructuresTest() {
-
+        ArrayList<Structure> structures = new ArrayList<>();
+        arena.setStructures(createStructure(structures));
+        Assertions.assertEquals(createStructure(structures),arena.getStructures());
     }
 
     @Test
