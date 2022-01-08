@@ -115,8 +115,7 @@ public class ArenaTest {
 
     @Test
     public void getFireEnemiesTest() {
-        ArrayList<FireEnemy> fireEnemies1 = new ArrayList<>();
-        Assertions.assertEquals(createFireEnemies(fireEnemies1), arena.getFireEnemies());
+        Assertions.assertEquals(fireEnemies, arena.getFireEnemies());
     }
 
     @Test
@@ -176,8 +175,7 @@ public class ArenaTest {
 
     @Test
     public void getLaddersTest() {
-        ArrayList<Ladder> ladders = new ArrayList<>();
-        Assertions.assertEquals(createLadders(ladders),arena.getLadders());
+        Assertions.assertEquals(ladders,arena.getLadders());
     }
 
     @Test
