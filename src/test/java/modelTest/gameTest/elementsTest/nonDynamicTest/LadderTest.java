@@ -10,20 +10,22 @@ public class LadderTest {
     @Test
     public void constructorTest() {
         Ladder l = new Ladder(new Position(5,2),5);
-        Assertions.assertEquals(l.getStairs().get(0).getPosition().getX(),5);
-        Assertions.assertEquals(l.getStairs().get(1).getPosition().getX(),4);
-        Assertions.assertEquals(l.getStairs().get(2).getPosition().getX(),3);
-        Assertions.assertEquals(l.getStairs().get(3).getPosition().getX(),2);
-        Assertions.assertEquals(l.getStairs().get(4).getPosition().getX(),1);
-
+        Assertions.assertEquals(5, l.getStairs().size());
+        Assertions.assertEquals(2, l.getStairs().get(0).getPosition().getY());
+        Assertions.assertEquals(1, l.getStairs().get(1).getPosition().getY());
+        Assertions.assertEquals(0, l.getStairs().get(2).getPosition().getY());
+        Assertions.assertEquals(-1, l.getStairs().get(3).getPosition().getY());
+        Assertions.assertEquals(-2, l.getStairs().get(4).getPosition().getY());
 
         Ladder l2 = new Ladder(new Position(10,4),6);
-        Assertions.assertEquals(l2.getStairs().get(0).getPosition().getX(),10);
-        Assertions.assertEquals(l2.getStairs().get(1).getPosition().getX(),9);
-        Assertions.assertEquals(l2.getStairs().get(2).getPosition().getX(),8);
-        Assertions.assertEquals(l2.getStairs().get(3).getPosition().getX(),7);
-        Assertions.assertEquals(l2.getStairs().get(4).getPosition().getX(),6);
-        Assertions.assertEquals(l2.getStairs().get(0).getPosition().getY(),4);
-        Assertions.assertEquals(l2.getStairs().get(1).getPosition().getY(),4);
+        Assertions.assertEquals(6, l2.getStairs().size());
+        Assertions.assertEquals(4, l2.getStairs().get(0).getPosition().getY());
+        Assertions.assertEquals(3, l2.getStairs().get(1).getPosition().getY());
+        Assertions.assertEquals(2, l2.getStairs().get(2).getPosition().getY());
+        Assertions.assertEquals(1, l2.getStairs().get(3).getPosition().getY());
+        Assertions.assertEquals(0, l2.getStairs().get(4).getPosition().getY());
+        Assertions.assertEquals(-1, l2.getStairs().get(5).getPosition().getY());
+        Assertions.assertEquals(10, l2.getStairs().get(0).getPosition().getX());
+        Assertions.assertEquals(10, l2.getStairs().get(1).getPosition().getX());
     }
 }
