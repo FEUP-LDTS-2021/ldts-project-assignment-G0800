@@ -1,6 +1,5 @@
 package com.ldts.donkeykong.model.menu;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Menu {
@@ -21,6 +20,10 @@ public class Menu {
 
     public String getEntry(int entry) {
         return null;
+    }
+
+    public int getCurrentEntry() {
+        return -1;
     }
 
     public boolean isSelected(int entry) {
