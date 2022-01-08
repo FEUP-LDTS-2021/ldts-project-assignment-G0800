@@ -38,26 +38,26 @@ public class PositionTest {
 
     @Test
     public void getUpTest() {
-        Assertions.assertEquals(6, p.getUp().getX());
-        Assertions.assertEquals(3, p.getUp().getY());
+        Assertions.assertEquals(7, p.getUp().getX());
+        Assertions.assertEquals(2, p.getUp().getY());
     }
 
     @Test
     public void getDownTest() {
-        Assertions.assertEquals(8, p.getDown().getX());
-        Assertions.assertEquals(3, p.getDown().getY());
+        Assertions.assertEquals(7, p.getDown().getX());
+        Assertions.assertEquals(4, p.getDown().getY());
     }
 
     @Test
     public void getLeftTest() {
-        Assertions.assertEquals(7, p.getLeft().getX());
-        Assertions.assertEquals(2, p.getLeft().getY());
+        Assertions.assertEquals(6, p.getLeft().getX());
+        Assertions.assertEquals(3, p.getLeft().getY());
     }
 
     @Test
     public void getRightTest() {
-        Assertions.assertEquals(7, p.getRight().getX());
-        Assertions.assertEquals(4, p.getRight().getY());
+        Assertions.assertEquals(8, p.getRight().getX());
+        Assertions.assertEquals(3, p.getRight().getY());
     }
 
     @Test
