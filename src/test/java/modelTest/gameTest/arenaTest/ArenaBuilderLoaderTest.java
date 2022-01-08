@@ -26,27 +26,27 @@ public class ArenaBuilderLoaderTest {
     @Test
     public void createArenaLevelOneTest() {
         Arena arena = abl.createArena();
-        Position princessPosition = new Position(1,9);
-        Position donkeyPosition = new Position(2,3);
-        Position barrel1,barrel2,barrel3,barrel4;
-        barrel1 = new Position(1,1);
-        barrel2 = new Position(1,2);
-        barrel3 = new Position(2,1);
-        barrel4 = new Position(2,2);
-        Position oilBarrelPosition = new Position(8,1);
-        Position marioPosition = new Position(8,5);
-        Position ladderTop,ladderMiddle1,ladderMiddle2,ladderBottom;
-        ladderTop = new Position(1,14);
-        ladderMiddle1 = new Position(4,12);
-        ladderMiddle2 = new Position(6,5);
-        ladderBottom = new Position(8,13);
-        Position hammerPosition = new Position(6,15);
-        Structure structure1,structure2,structure3,structure4,structure5;
-        structure1 = new Structure(new Position(2,8),3);
-        structure2 = new Structure(new Position(3,1),5);
-        structure3 = new Structure(new Position(3,9),8);
-        structure4 = new Structure(new Position(5,2),9);
-        structure5 = new Structure(new Position(7,9),8);
+        Position princessPosition = new Position(1, 9);
+        Position donkeyPosition = new Position(2, 3);
+        Position barrel1, barrel2, barrel3, barrel4;
+        barrel1 = new Position(1, 1);
+        barrel2 = new Position(1, 2);
+        barrel3 = new Position(2, 1);
+        barrel4 = new Position(2, 2);
+        Position oilBarrelPosition = new Position(8, 1);
+        Position marioPosition = new Position(8, 5);
+        Position ladderTop, ladderMiddle1, ladderMiddle2, ladderBottom;
+        ladderTop = new Position(1, 14);
+        ladderMiddle1 = new Position(4, 12);
+        ladderMiddle2 = new Position(6, 5);
+        ladderBottom = new Position(8, 13);
+        Position hammerPosition = new Position(6, 15);
+        Structure structure1, structure2, structure3, structure4, structure5;
+        structure1 = new Structure(new Position(2, 8), 3);
+        structure2 = new Structure(new Position(3, 1), 5);
+        structure3 = new Structure(new Position(3, 9), 8);
+        structure4 = new Structure(new Position(5, 2), 9);
+        structure5 = new Structure(new Position(7, 9), 8);
 
         Assertions.assertEquals(4, arena.getBarrels().size());
         Assertions.assertEquals(4, arena.getLadders().size());
