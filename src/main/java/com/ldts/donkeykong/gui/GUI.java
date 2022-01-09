@@ -15,7 +15,7 @@ public interface GUI {
 
     void drawBarrel(Position position, boolean isFiery);
 
-    void drawFireEnemy(Position position, int height);
+    void drawFireEnemy(Position position);
 
     void drawHammer(Position position);
 

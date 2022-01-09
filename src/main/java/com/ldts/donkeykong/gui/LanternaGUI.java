@@ -89,7 +89,7 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawFireEnemy(Position position, int height) {
+    public void drawFireEnemy(Position position) {
         drawCharacter(position.getX(), position.getY(), 'F', "#FFFF34");
     }
 
