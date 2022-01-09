@@ -127,7 +127,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'H') {
+                if (line.charAt(x) == '$') {
                     return new Hammer(new Position(x, y));
                 }
         }
@@ -139,7 +139,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'O') {
+                if (line.charAt(x) == '@') {
                     return new OilBarrel(new Position(x, y));
                 }
         }
