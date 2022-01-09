@@ -48,7 +48,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'F') {
+                if (line.charAt(x) == '&') {
                     if (barrels.isEmpty()) {
                         barrels.add(new Barrel(new Position(x, y), true));
                     }
@@ -112,11 +112,19 @@ public class ArenaBuilderLoader extends ArenaBuilder {
     @Override
     protected List<Ladder> createLadders() {
         List<Ladder> ladders = new ArrayList<>();
+        Position startingPosition = null;
+        int height = 0;
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
                 if (line.charAt(x) == '|') {
-                    ladders.add(new Ladder(new Position(x, y), x));
+                    startingPosition = new Position(x,y);
+                    int startingY = y;
+                    while (startingY <= lines.size() && line.charAt(startingY) == '|') {
+                        startingY++;
+                        height++;
+                    }
+                    ladders.add(new Ladder(startingPosition, height));
                 }
         }
         return ladders;
@@ -161,8 +169,9 @@ public class ArenaBuilderLoader extends ArenaBuilder {
                         x++;
                         width++;
                     }
+                    structures.add(new Structure(startingPosition, width));
+                    width = 0;
                 }
-                structures.add(new Structure(startingPosition, width));
             }
         }
         return structures;
