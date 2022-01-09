@@ -95,7 +95,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawHammer(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "");
+        drawCharacter(position.getX(), position.getY(), 'H', "#2929ED");
     }
 
     @Override
