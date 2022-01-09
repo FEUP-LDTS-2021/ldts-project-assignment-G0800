@@ -2,12 +2,11 @@ package com.ldts.donkeykong.viewer.game.elements.dynamic;
 
 import com.ldts.donkeykong.gui.GUI;
 import com.ldts.donkeykong.model.game.elements.dynamic.Donkey;
-import com.ldts.donkeykong.model.game.elements.dynamic.DynamicElement;
+import com.ldts.donkeykong.viewer.game.elements.GameElementViewer;
 
-public class DonkeyViewer extends DynamicElementViewer {
+public class DonkeyViewer implements GameElementViewer<Donkey> {
     @Override
-    public void draw(DynamicElement element, GUI gui) {
-        Donkey donkey= (Donkey) element;
+    public void draw(Donkey donkey, GUI gui) {
         gui.drawDonkey(donkey.getPosition());
     }
 }
