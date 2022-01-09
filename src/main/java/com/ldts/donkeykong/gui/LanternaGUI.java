@@ -68,39 +68,39 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawMario(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'M', "#FF0000");
+        drawCharacter(position.getX(), position.getY(), '*', "#FF0000");
     }
 
     @Override
     public void drawDonkey(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'D', "#DF8958");
+        drawCharacter(position.getX(), position.getY(), '/', "#DF8958");
     }
 
     @Override
     public void drawPrincess(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'P', "#FFB7EB");
+        drawCharacter(position.getX(), position.getY(), '?', "#FFB7EB");
     }
 
     @Override
     public void drawBarrel(Position position, boolean isFiery) {
         String color;
         color = isFiery ? "#D2A311" : "#0303D8";
-        drawCharacter(position.getX(), position.getY(), 'B', color);
+        drawCharacter(position.getX(), position.getY(), '&', color);
     }
 
     @Override
     public void drawFireEnemy(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'F', "#FFFF34");
+        drawCharacter(position.getX(), position.getY(), '+', "#FFFF34");
     }
 
     @Override
     public void drawHammer(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "#2929ED");
+        drawCharacter(position.getX(), position.getY(), '$', "#2929ED");
     }
 
     @Override
     public void drawOilBarrel(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'O', "#2929ED");
+        drawCharacter(position.getX(), position.getY(), '@', "#2929ED");
     }
 
     @Override
