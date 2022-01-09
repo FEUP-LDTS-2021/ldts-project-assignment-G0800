@@ -8,14 +8,17 @@ public abstract class Viewer<T> {
     private final T model;
 
     public Viewer(T model) {
-        this.model = null;
+        this.model = model;
     }
 
     public T getModel() {
-        return null;
+        return model;
     }
 
     public void draw(GUI gui) throws IOException {
+        gui.clear();
+        drawElements(gui);
+        gui.refresh();
     }
 
     protected abstract void drawElements(GUI gui);
