@@ -104,7 +104,7 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawStair(Position position, int dimension, char c) {
+    public void drawStair(Position position, char c) {
         String color;
         color = c == '-' ? "#8D1900" : "#17C4C4";
         drawCharacter(position.getX(), position.getY(), c, color);

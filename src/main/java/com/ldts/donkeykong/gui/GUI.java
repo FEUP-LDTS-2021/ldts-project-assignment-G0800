@@ -21,7 +21,7 @@ public interface GUI {
 
     void drawOilBarrel(Position position);
 
-    void drawStair(Position position, int dimension, char c);
+    void drawStair(Position position, char c);
 
     void drawText(Position position, String text, String color);
 
