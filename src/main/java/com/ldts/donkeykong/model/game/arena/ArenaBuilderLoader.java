@@ -65,7 +65,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'D') {
+                if (line.charAt(x) == '/') {
                     return new Donkey(new Position(x, y));
                 }
         }
@@ -77,7 +77,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'M') {
+                if (line.charAt(x) == '*') {
                     return new Mario(new Position(x, y));
                 }
         }
@@ -89,7 +89,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'P') {
+                if (line.charAt(x) == '?') {
                     return new Princess(new Position(x, y));
                 }
         }
@@ -102,7 +102,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);
             for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == 'F') {
+                if (line.charAt(x) == '+') {
                     fireEnemies.add(new FireEnemy(new Position(x, y)));
                 }
         }
