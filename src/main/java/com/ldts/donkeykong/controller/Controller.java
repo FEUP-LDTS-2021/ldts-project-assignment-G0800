@@ -9,11 +9,11 @@ public abstract class Controller<T> {
     private final T model;
 
     public Controller(T model) {
-        this.model = null;
+        this.model = model;
     }
 
     public T getModel() {
-        return null;
+        return model;
     }
 
     public abstract void step(Application application, GUI.ACTION action, long time) throws IOException;
