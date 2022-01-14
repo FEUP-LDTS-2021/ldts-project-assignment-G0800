@@ -1,3 +1,5 @@
+package com.ldts.donkeykong;
+
 import com.ldts.donkeykong.gui.LanternaGUI;
 import com.ldts.donkeykong.viewer.menu.MenuViewer;
 import com.ldts.donkeykong.model.menu.Menu;
