@@ -1,4 +1,4 @@
-package com.ldts.donkeykong.controller.game.elements;
+package com.ldts.donkeykong.controller.game.elements.dynamic;
 
 import com.ldts.donkeykong.Application;
 import com.ldts.donkeykong.gui.GUI;
