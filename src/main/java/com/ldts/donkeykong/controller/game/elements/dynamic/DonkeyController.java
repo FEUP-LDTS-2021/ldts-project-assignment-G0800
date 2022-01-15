@@ -15,10 +15,10 @@ public class DonkeyController {
 
     }
 
-    public void throwBarrel(Donkey donkey, Barrel barrel) {
+    public void throwBarrel(Barrel barrel) {
 
     }
 
-    public void move(Donkey donkey, Position position) {
+    public void move(Position position) {
     }
 }
