@@ -156,7 +156,7 @@ public class Arena {
     public boolean isStructure(Position position){
         for (Structure s: structures) {
             for (Stair t: s.getStairs()) {
-                if(s.getPosition().equals(position)) {
+                if(t.getPosition().equals(position)) {
                     return true;
                 }
             }
