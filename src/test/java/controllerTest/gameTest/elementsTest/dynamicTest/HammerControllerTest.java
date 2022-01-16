@@ -43,8 +43,8 @@ public class HammerControllerTest {
     @Test
     public void touchedBarrelTest() {
         Assertions.assertTrue(hammerController.touchedBarrel(arena.getBarrels().get(0)));
-        for (Barrel barrel: arena.getBarrels()) {
-            Assertions.assertFalse(hammerController.touchedBarrel(barrel));
+        for (int i = 1; i < arena.getBarrels().size(); i++) {
+            Assertions.assertFalse(hammerController.touchedBarrel(arena.getBarrels().get(i)));
         }
     }
 }
