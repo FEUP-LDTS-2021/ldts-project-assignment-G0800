@@ -111,10 +111,7 @@ public class Arena {
     }
 
     public boolean isEmpty(Position position) {
-        if (position.getX() < 0 || position.getX() > width || position.getY() < 0 || position.getY() > height) {
-            return false;
-        }
-        return true;
+        return position.getX() >= 0 && position.getX() <= width && position.getY() >= 0 && position.getY() <= height;
     }
 
     public boolean isBarrel(Position position) {
@@ -136,10 +133,7 @@ public class Arena {
     }
 
     public boolean isPrincess(Position position) {
-        if(princess.getPosition().equals(position)) {
-            return true;
-        }
-        return false;
+        return princess.getPosition().equals(position);
     }
 
     public boolean isLadder(Position position){
@@ -165,16 +159,10 @@ public class Arena {
     }
 
     public boolean isHammer(Position position){
-        if (hammer.getPosition().equals(position)) {
-            return true;
-        }
-        return false;
+        return hammer.getPosition().equals(position);
     }
 
     public boolean isOilBarrel(Position position){
-        if (oilBarrel.getPosition().equals(position)) {
-            return true;
-        }
-        return false;
+        return oilBarrel.getPosition().equals(position);
     }
 }
