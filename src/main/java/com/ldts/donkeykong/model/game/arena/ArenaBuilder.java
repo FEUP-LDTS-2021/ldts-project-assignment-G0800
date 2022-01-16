@@ -1,6 +1,5 @@
 package com.ldts.donkeykong.model.game.arena;
 
-import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.elements.dynamic.*;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Ladder;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
