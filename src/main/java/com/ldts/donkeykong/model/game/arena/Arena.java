@@ -153,6 +153,17 @@ public class Arena {
         return false;
     }
 
+    public boolean isStructure(Position position){
+        for (Structure s: structures) {
+            for (Stair t: s.getStairs()) {
+                if(s.getPosition().equals(position)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean isHammer(Position position){
         if (hammer.getPosition().equals(position)) {
             return true;
