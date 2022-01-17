@@ -11,12 +11,11 @@ import com.ldts.donkeykong.model.game.elements.dynamic.Donkey;
 import java.io.IOException;
 
 public class DonkeyController extends Controller<Arena> {
-
     public DonkeyController(Arena arena) {
         super(arena);
     }
 
-    public void throwBarrel(Barrel barrel) {
+    public void throwBarrel() {
 
     }
 
