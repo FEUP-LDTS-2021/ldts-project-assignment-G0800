@@ -12,6 +12,7 @@ import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Princess;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Arena {
@@ -30,6 +31,10 @@ public class Arena {
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        structures = new ArrayList<>();
+        ladders = new ArrayList<>();
+        fireEnemies = new ArrayList<>();
+        barrels = new ArrayList<>();
     }
 
     public int getWidth() {
