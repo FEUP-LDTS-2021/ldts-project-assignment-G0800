@@ -19,7 +19,7 @@ public class DonkeyController extends Controller<Arena> {
     }
 
     public void throwBarrel() {
-        
+
     }
 
     @Override
