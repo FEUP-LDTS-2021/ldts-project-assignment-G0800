@@ -11,6 +11,8 @@ import com.ldts.donkeykong.model.game.elements.dynamic.Donkey;
 import java.io.IOException;
 
 public class DonkeyController extends Controller<Arena> {
+    private long lastMovement;
+
     public DonkeyController(Arena arena) {
         super(arena);
     }
