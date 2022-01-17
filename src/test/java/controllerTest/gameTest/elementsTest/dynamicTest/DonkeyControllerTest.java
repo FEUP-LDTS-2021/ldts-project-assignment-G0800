@@ -34,7 +34,7 @@ public class DonkeyControllerTest {
         controller.step(app, GUI.ACTION.NONE, 1000);
         Assertions.assertEquals(1, arena.getBarrels().size());
 
-        controller.step(app, GUI.ACTION.NONE, 1000);
+        controller.step(app, GUI.ACTION.NONE, 2000);
         Assertions.assertEquals(2, arena.getBarrels().size());
     }
 }
