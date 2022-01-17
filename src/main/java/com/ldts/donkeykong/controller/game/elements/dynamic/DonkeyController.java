@@ -15,13 +15,11 @@ public class DonkeyController extends Controller<Arena> {
 
     public DonkeyController(Arena arena) {
         super(arena);
+        this.lastMovement = 0;
     }
 
     public void throwBarrel() {
-
-    }
-
-    public void move(Position position) {
+        
     }
 
     @Override
