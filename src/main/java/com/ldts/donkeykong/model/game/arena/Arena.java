@@ -12,6 +12,7 @@ import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Princess;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Arena {
@@ -30,6 +31,10 @@ public class Arena {
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
+        structures = new ArrayList<>();
+        ladders = new ArrayList<>();
+        fireEnemies = new ArrayList<>();
+        barrels = new ArrayList<>();
     }
 
     public int getWidth() {
@@ -133,7 +138,7 @@ public class Arena {
     }
 
     public boolean isPrincess(Position position) {
-        return princess.getPosition().equals(position);
+        return princess != null && princess.getPosition().equals(position);
     }
 
     public boolean isLadder(Position position){
@@ -159,10 +164,10 @@ public class Arena {
     }
 
     public boolean isHammer(Position position){
-        return hammer.getPosition().equals(position);
+        return hammer != null && hammer.getPosition().equals(position);
     }
 
     public boolean isOilBarrel(Position position){
-        return oilBarrel.getPosition().equals(position);
+        return oilBarrel != null && oilBarrel.getPosition().equals(position);
     }
 }

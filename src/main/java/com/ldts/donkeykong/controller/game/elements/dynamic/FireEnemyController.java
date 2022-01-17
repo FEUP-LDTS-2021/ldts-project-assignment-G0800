@@ -7,8 +7,6 @@ import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.dynamic.FireEnemy;
 
-import java.io.IOException;
-
 public class FireEnemyController extends Controller<Arena> {
     private long lastMove;
 
@@ -18,7 +16,7 @@ public class FireEnemyController extends Controller<Arena> {
     }
 
     @Override
-    public void step(Application application, GUI.ACTION action, long time) throws IOException {
+    public void step(Application application, GUI.ACTION action, long time){
 
     }
 

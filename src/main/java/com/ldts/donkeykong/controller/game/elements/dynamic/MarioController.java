@@ -5,14 +5,13 @@ import com.ldts.donkeykong.controller.Controller;
 import com.ldts.donkeykong.gui.GUI;
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
-import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
-
-import java.io.IOException;
 
 public class MarioController extends Controller<Arena> {
-
-    public MarioController(Arena arena) {
+    private boolean hammer;
+    public MarioController(Arena arena)
+    {
         super(arena);
+        this.hammer = false;
     }
 
     public void moveUp(){
@@ -31,11 +30,11 @@ public class MarioController extends Controller<Arena> {
 
     }
 
-    public void moveMario(Position position) {
+    public void jump(){
 
     }
 
-    public void jump(){
+    public void moveMario(Position position) {
 
     }
 
@@ -47,12 +46,16 @@ public class MarioController extends Controller<Arena> {
         return false;
     }
 
-    public boolean touchedBarrel(Barrel barrel){
+    public boolean touchedBarrel(){
+        return false;
+    }
+
+    public boolean touchedFireEnemy(){
         return false;
     }
 
     @Override
-    public void step(Application application, GUI.ACTION action, long time) throws IOException {
+    public void step(Application application, GUI.ACTION action, long time) {
 
     }
 
