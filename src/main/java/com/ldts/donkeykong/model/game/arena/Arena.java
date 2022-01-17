@@ -138,7 +138,7 @@ public class Arena {
     }
 
     public boolean isPrincess(Position position) {
-        return princess.getPosition().equals(position);
+        return princess != null && princess.getPosition().equals(position);
     }
 
     public boolean isLadder(Position position){
@@ -164,10 +164,10 @@ public class Arena {
     }
 
     public boolean isHammer(Position position){
-        return hammer.getPosition().equals(position);
+        return hammer != null && hammer.getPosition().equals(position);
     }
 
     public boolean isOilBarrel(Position position){
-        return oilBarrel.getPosition().equals(position);
+        return oilBarrel != null && oilBarrel.getPosition().equals(position);
     }
 }
