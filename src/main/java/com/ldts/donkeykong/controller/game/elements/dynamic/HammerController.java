@@ -16,31 +16,47 @@ public class HammerController extends GameController {
     }
 
     private boolean touchedBarrel(Barrel barrel) {
-        return false;
+        return getModel().getHammer().getPosition().equals(barrel.getPosition());
     }
 
     private boolean touchedFireEnemy(FireEnemy fireEnemy) {
-        return false;
+        return getModel().getHammer().getPosition().equals(fireEnemy.getPosition());
     }
 
     private void checkAllBarrels() {
-
+        for(int i = 0; i < getModel().getBarrels().size(); i++) {
+            if(touchedBarrel(getModel().getBarrels().get(i))) {
+                getModel().removeBarrel(getModel().getBarrels().get(i));
+                decreaseQuantityOfHits();
+                break;
+            }
+        }
     }
 
     private void checkAllFireEnemies() {
-
+        for (int i = 0; i < getModel().getFireEnemies().size(); i++) {
+            if(touchedFireEnemy(getModel().getFireEnemies().get(i))) {
+                getModel().removeFireEnemy(getModel().getFireEnemies().get(i));
+                decreaseQuantityOfHits();
+                break;
+            }
+        }
     }
 
     private void decreaseQuantityOfHits() {
-
+        quantityOfHits--;
     }
 
     private void setHammerAsNull() {
-
+        getModel().setHammer(null);
     }
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-
+        if(getModel().getHammer() != null) {
+            checkAllBarrels();
+            checkAllFireEnemies();
+            if(quantityOfHits <= 0) setHammerAsNull();
+        }
     }
 }
