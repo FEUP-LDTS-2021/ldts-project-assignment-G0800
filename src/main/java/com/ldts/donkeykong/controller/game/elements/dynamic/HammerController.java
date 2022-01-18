@@ -5,16 +5,38 @@ import com.ldts.donkeykong.controller.game.GameController;
 import com.ldts.donkeykong.gui.GUI;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
+import com.ldts.donkeykong.model.game.elements.dynamic.FireEnemy;
 
 import java.io.IOException;
 
 public class HammerController extends GameController {
+    private byte quantityOfHits = 5;
     public HammerController(Arena arena) {
         super(arena);
     }
 
-    public boolean touchedBarrel(Barrel barrel) {
+    private boolean touchedBarrel(Barrel barrel) {
         return false;
+    }
+
+    private boolean touchedFireEnemy(FireEnemy fireEnemy) {
+        return false;
+    }
+
+    private void checkAllBarrels() {
+
+    }
+
+    private void checkAllFireEnemies() {
+
+    }
+
+    private void decreaseQuantityOfHits() {
+
+    }
+
+    private void setHammerAsNull() {
+
     }
 
     @Override
