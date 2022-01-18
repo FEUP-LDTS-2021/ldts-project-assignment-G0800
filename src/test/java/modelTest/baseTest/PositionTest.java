@@ -64,5 +64,6 @@ public class PositionTest {
     public void equalsTest() {
         Position positionToBeCompared = new Position(5,6);
         Assertions.assertNotSame(p, positionToBeCompared);
+        Assertions.assertEquals(p, new Position(7, 3));
     }
 }
