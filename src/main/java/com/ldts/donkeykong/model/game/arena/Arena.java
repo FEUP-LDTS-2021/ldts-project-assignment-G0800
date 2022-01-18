@@ -116,7 +116,7 @@ public class Arena {
     }
 
     public boolean isEmpty(Position position) {
-        return position.getX() >= 0 && position.getX() <= width && position.getY() >= 0 && position.getY() <= height;
+        return position.getX() >= 0 && position.getX() < width && position.getY() >= 0 && position.getY() < height;
     }
 
     public boolean isBarrel(Position position) {

@@ -24,17 +24,18 @@ public class ArenaBuilderLoader extends ArenaBuilder {
 
     private List<String> readLines(BufferedReader br) throws IOException {
         List<String> lines = new ArrayList<>();
-        for (String line; (line = br.readLine()) != null; )
+        br.readLine();                 //Ignore first line
+        for (String line; (line = br.readLine()) != null; ){
+            line = line.replace("#", "");
             lines.add(line);
+        }
+        lines.remove(lines.size()-1);
         return lines;
     }
 
     @Override
     protected int getWidth() {
-        int width = 0;
-        for (String line : lines)
-            width = Math.max(width, line.length());
-        return width;
+        return lines.get(0).length();
     }
 
     @Override
@@ -112,20 +113,17 @@ public class ArenaBuilderLoader extends ArenaBuilder {
     @Override
     protected List<Ladder> createLadders() {
         List<Ladder> ladders = new ArrayList<>();
-        Position startingPosition = null;
-        int height = 0;
         for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '|') {
-                    startingPosition = new Position(x,y);
-                    int startingY = y;
-                    while (startingY <= lines.size() && line.charAt(startingY) == '|') {
-                        startingY++;
-                        height++;
-                    }
-                    ladders.add(new Ladder(startingPosition, height));
-                }
+            int height = 0;
+            while (y < lines.size() && lines.get(y).contains("|")){
+                y++;
+                height ++;
+            }
+            if (height > 0){
+                String line = lines.get(y-1);
+                ladders.add(new Ladder(new Position(line.indexOf("|"), y-1), height));
+            }
+
         }
         return ladders;
     }
@@ -157,7 +155,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
     @Override
     protected List<Structure> createStructures() {
         List<Structure> structures = new ArrayList<>();
-        Position startingPosition = null;
+        Position startingPosition;
         int width = 0;
 
         for (int y = 0; y < lines.size(); y++) {
@@ -165,7 +163,7 @@ public class ArenaBuilderLoader extends ArenaBuilder {
             for (int x = 0; x < line.length(); x++) {
                 if (line.charAt(x) == '-') {
                     startingPosition = new Position(x, y);
-                    while (line.charAt(x) == '-') {
+                    while (x < line.length() && line.charAt(x) == '-' ) {
                         x++;
                         width++;
                     }
