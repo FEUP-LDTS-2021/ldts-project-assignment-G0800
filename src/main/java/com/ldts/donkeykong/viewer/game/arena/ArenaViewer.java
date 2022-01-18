@@ -24,14 +24,14 @@ public class ArenaViewer extends Viewer<Arena> {
 
     @Override
     protected void drawElements(GUI gui) {
+        drawElements(gui, getModel().getLadders(), new LadderViewer());
+        drawElements(gui, getModel().getStructures(), new StructureViewer());
         drawElement(gui, getModel().getMario(), new MarioViewer());
         drawElement(gui, getModel().getDonkey(), new DonkeyViewer());
         drawElement(gui, getModel().getHammer(), new HammerViewer());
         drawElement(gui, getModel().getOilBarrel(), new OilBarrelViewer());
         drawElement(gui, getModel().getPrincess(), new PrincessViewer());
         drawElements(gui, getModel().getBarrels(), new BarrelViewer());
-        drawElements(gui, getModel().getLadders(), new LadderViewer());
-        drawElements(gui, getModel().getStructures(), new StructureViewer());
     }
 
     private<T extends GameElement> void drawElements(GUI gui, List<T> elements, GameElementViewer<T> viewer) {
