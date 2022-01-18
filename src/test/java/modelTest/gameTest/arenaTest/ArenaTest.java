@@ -235,6 +235,11 @@ public class ArenaTest {
         Assertions.assertFalse(arena.isEmpty(new Position(10,9)));
         Assertions.assertFalse(arena.isEmpty(new Position(10,10)));
         Assertions.assertFalse(arena.isEmpty(new Position(9,10)));
+
+        Assertions.assertTrue(arena.isEmpty(new Position(0,0)));
+        Assertions.assertTrue(arena.isEmpty(new Position(9,0)));
+        Assertions.assertTrue(arena.isEmpty(new Position(0,9)));
+        Assertions.assertTrue(arena.isEmpty(new Position(9,9)));
     }
 
     @Test
