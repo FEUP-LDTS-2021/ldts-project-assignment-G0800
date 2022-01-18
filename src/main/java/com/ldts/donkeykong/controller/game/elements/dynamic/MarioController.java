@@ -42,9 +42,6 @@ public class MarioController extends Controller<Arena> {
         if (!getModel().isLadder(getModel().getMario().getPosition())) {
             getModel().getMario().setPosition(getModel().getMario().getPosition().getUp());
 
-            getModel().getMario().setPosition(getModel().getMario().getPosition().getLeft());
-            getModel().getMario().setPosition(getModel().getMario().getPosition().getLeft());
-
             if (getModel().isBarrel(getModel().getMario().getPosition().getDown()) || getModel().isFireEnemy(getModel().getMario().getPosition().getDown()))
                 getModel().getMario().increaseScore();
 

@@ -16,6 +16,8 @@ import org.junit.jupiter.api.TestInstance;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static org.mockito.Mockito.mock;
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BarrelControllerTest {
 
@@ -40,7 +42,7 @@ public class BarrelControllerTest {
 
     @BeforeAll
     public void createData() {
-        app = new Application();
+        app = mock(Application.class);
         arena = new Arena(10,10);
         arena.setHammer(new Hammer(new Position(1,1)));
         arena.setBarrels(createBarrels());

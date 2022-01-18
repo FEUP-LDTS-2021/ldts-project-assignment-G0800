@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.Mockito.mock;
+
 public class HammerControllerTest {
 
     Arena arena;
@@ -38,7 +40,7 @@ public class HammerControllerTest {
 
     @BeforeEach
     public void createData() {
-        app = new Application();
+        app = mock(Application.class);
         arena = new Arena(10,10);
         arena.setBarrels(createBarrels());
         mario = new Mario(new Position(0,4));
