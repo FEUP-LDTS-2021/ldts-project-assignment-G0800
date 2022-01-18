@@ -10,11 +10,13 @@ import java.io.IOException;
 
 public class BarrelController extends GameController {
 
+    Direction direction;
+
     public BarrelController(Arena arena) {
         super(arena);
     }
 
-    public void moveBarrels() {
+    private void moveBarrels() {
 
     }
 
@@ -22,12 +24,14 @@ public class BarrelController extends GameController {
 
     }
 
-    private void removeBarrel(Barrel barrel) {
-
+    private boolean barrelFalling(Barrel barrel) {
+        return false;
     }
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
 
     }
+
+    enum Direction {LEFT,RIGHT}
 }
