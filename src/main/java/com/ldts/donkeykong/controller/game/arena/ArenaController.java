@@ -29,7 +29,7 @@ public class ArenaController extends GameController {
     }
 
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getMario().getScore() == 0) {
+        if (action == GUI.ACTION.QUIT || !getModel().getMario().isAlive()) {
             application.setState(new MenuState(new Menu()));
         }
         else {
