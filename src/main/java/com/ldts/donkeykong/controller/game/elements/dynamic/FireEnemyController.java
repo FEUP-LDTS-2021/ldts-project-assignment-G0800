@@ -45,7 +45,7 @@ public class FireEnemyController extends Controller<Arena> {
     }
 
     public void moveFireEnemy(FireEnemy fireEnemy, Position position){
-        if (getModel().isEmpty(position) && this.getModel().isStructure(position.getDown())){
+        if (getModel().isInArena(position) && this.getModel().isStructure(position.getDown())){
             fireEnemy.setPosition(position);
             if (touchedMario(fireEnemy))
                 getModel().getMario().setAsDead();

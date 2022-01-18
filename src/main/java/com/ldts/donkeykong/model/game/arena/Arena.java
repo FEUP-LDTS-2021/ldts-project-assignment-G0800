@@ -115,7 +115,7 @@ public class Arena {
         this.structures = structures;
     }
 
-    public boolean isEmpty(Position position) {
+    public boolean isInArena(Position position) {
         return position.getX() >= 0 && position.getX() < width && position.getY() >= 0 && position.getY() < height;
     }
 
