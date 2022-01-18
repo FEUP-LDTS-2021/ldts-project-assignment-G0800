@@ -1,6 +1,7 @@
 package com.ldts.donkeykong;
 
 import com.ldts.donkeykong.gui.LanternaGUI;
+import com.ldts.donkeykong.states.State;
 import com.ldts.donkeykong.viewer.menu.MenuViewer;
 import com.ldts.donkeykong.model.menu.Menu;
 
@@ -9,6 +10,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Application {
+    private State state;
+
     public static void main(String[] args) {
         try {
             LanternaGUI gui = new LanternaGUI(20,20);
@@ -22,6 +25,9 @@ public class Application {
         } catch (FontFormatException e) {
             e.printStackTrace();
         }
+    }
 
+    public void setState(State state) {
+        this.state = state;
     }
 }
