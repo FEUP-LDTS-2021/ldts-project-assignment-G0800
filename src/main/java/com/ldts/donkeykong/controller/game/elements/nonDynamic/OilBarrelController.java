@@ -14,8 +14,12 @@ public class OilBarrelController extends GameController {
         super(arena);
     }
 
-    public boolean hasFieryBarrel(Barrel barrel) {
+    private boolean hasFieryBarrel(Barrel barrel) {
         return false;
+    }
+
+    private void checkAllBarrels() {
+
     }
 
     @Override
