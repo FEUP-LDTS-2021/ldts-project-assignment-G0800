@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ArenaTest {
     Arena arena;
@@ -216,8 +215,30 @@ public class ArenaTest {
 
     @Test
     public void isEmptyTest() {
-        Assertions.assertTrue(arena.isEmpty(new Position(7,8)));
-        Assertions.assertFalse(arena.isEmpty(new Position(15,13)));
+        Assertions.assertTrue(arena.isInArena(new Position(7,8)));
+        Assertions.assertFalse(arena.isInArena(new Position(15,13)));
+        Assertions.assertFalse(arena.isInArena(new Position(0,10)));
+
+        Assertions.assertFalse(arena.isInArena(new Position(0,-1)));
+        Assertions.assertFalse(arena.isInArena(new Position(-1,-1)));
+        Assertions.assertFalse(arena.isInArena(new Position(-1,0)));
+
+        Assertions.assertFalse(arena.isInArena(new Position(10,0)));
+        Assertions.assertFalse(arena.isInArena(new Position(9,-1)));
+        Assertions.assertFalse(arena.isInArena(new Position(10,-1)));
+
+        Assertions.assertFalse(arena.isInArena(new Position(-1,9)));
+        Assertions.assertFalse(arena.isInArena(new Position(-1,10)));
+        Assertions.assertFalse(arena.isInArena(new Position(0,10)));
+
+        Assertions.assertFalse(arena.isInArena(new Position(10,9)));
+        Assertions.assertFalse(arena.isInArena(new Position(10,10)));
+        Assertions.assertFalse(arena.isInArena(new Position(9,10)));
+
+        Assertions.assertTrue(arena.isInArena(new Position(0,0)));
+        Assertions.assertTrue(arena.isInArena(new Position(9,0)));
+        Assertions.assertTrue(arena.isInArena(new Position(0,9)));
+        Assertions.assertTrue(arena.isInArena(new Position(9,9)));
     }
 
     @Test
