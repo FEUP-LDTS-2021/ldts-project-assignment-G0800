@@ -9,6 +9,7 @@ import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class OilBarrelControllerTest {
 
     @Test
     public void hasFieryBarrelTest() throws IOException {
-        Application app = new Application();
+        Application app = Mockito.mock(Application.class);
         List<Barrel> barrels = new ArrayList<>();
         barrels.add(new Barrel(new Position(0,1),true));
         barrels.add(new Barrel(new Position(2,3),false));

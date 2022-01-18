@@ -12,6 +12,7 @@ import com.ldts.donkeykong.model.game.elements.dynamic.Mario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class HammerControllerTest {
 
     @BeforeEach
     public void createData() {
-        app = new Application();
+        app = Mockito.mock(Application.class);
         arena = new Arena(10,10);
         arena.setBarrels(createBarrels());
         mario = new Mario(new Position(0,4));

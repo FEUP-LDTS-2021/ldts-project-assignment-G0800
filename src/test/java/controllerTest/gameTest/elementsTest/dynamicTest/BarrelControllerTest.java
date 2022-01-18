@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class BarrelControllerTest {
 
     @BeforeAll
     public void createData() {
-        app = new Application();
+        app = Mockito.mock(Application.class);
         arena = new Arena(10,10);
         arena.setHammer(new Hammer(new Position(1,1)));
         arena.setBarrels(createBarrels());
