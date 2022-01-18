@@ -56,7 +56,7 @@ public class MarioController extends Controller<Arena> {
         if (getModel().isLadder(position) && !hasHammer())
             getModel().getMario().setPosition(position);
 
-        else if (getModel().isStructure(position) && getModel().isLadder(position.getDown()))
+        else if (getModel().isStructure(position) && getModel().isLadder(position.getDown()) && !hasHammer())
             getModel().getMario().setPosition(position);
 
         else if (getModel().isStructure(position.getDown()))
