@@ -53,6 +53,10 @@ public class Arena {
         this.barrels = barrels;
     }
 
+    public void removeBarrel(Barrel barrel) {
+        barrels.remove(barrel);
+    }
+
     public Donkey getDonkey() {
         return donkey;
     }
@@ -63,6 +67,10 @@ public class Arena {
 
     public List<FireEnemy> getFireEnemies() {
         return fireEnemies;
+    }
+
+    public void removeFireEnemy(FireEnemy fireEnemy) {
+        fireEnemies.remove(fireEnemy);
     }
 
     public void setFireEnemies(List<FireEnemy> fireEnemies) {
