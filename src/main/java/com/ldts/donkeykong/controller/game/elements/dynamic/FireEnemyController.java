@@ -17,7 +17,7 @@ public class FireEnemyController extends Controller<Arena> {
 
     @Override
     public void step(Application application, GUI.ACTION action, long time){
-        if (time - lastMove > 350){
+        if (time - lastMove > 500){
 
             for (FireEnemy f: getModel().getFireEnemies()){
                 Position enemyPosition = f.getPosition();
