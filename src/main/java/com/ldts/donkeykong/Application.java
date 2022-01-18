@@ -15,7 +15,7 @@ public class Application {
     private State state;
 
     public Application() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(20, 20);
+        this.gui = new LanternaGUI(21, 23);
         this.state = new MenuState(new Menu());
     }
 
