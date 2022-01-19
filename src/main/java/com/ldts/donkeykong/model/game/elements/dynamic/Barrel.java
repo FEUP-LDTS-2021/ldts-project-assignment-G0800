@@ -9,6 +9,7 @@ public class Barrel extends DynamicElement {
     public Barrel(Position position, boolean fiery) {
         super(position);
         this.fiery = fiery;
+        this.direction = DIRECTION.LEFT;
     }
 
     public boolean isFiery() {
@@ -16,10 +17,14 @@ public class Barrel extends DynamicElement {
     }
 
     public DIRECTION getDirection() {
-        return null;
+        return direction;
     }
 
     public void changeDirection() {
-
+        if (direction == DIRECTION.RIGHT) {
+            direction = DIRECTION.LEFT;
+        } else {
+            direction = DIRECTION.RIGHT;
+        }
     }
 }
