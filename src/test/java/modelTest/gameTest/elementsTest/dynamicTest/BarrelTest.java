@@ -2,6 +2,7 @@ package modelTest.gameTest.elementsTest.dynamicTest;
 
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
+import com.ldts.donkeykong.model.game.elements.dynamic.DIRECTION;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,5 +28,12 @@ public class BarrelTest {
     @Test
     public void isFieryTest() {
         Assertions.assertFalse(nonFieryBarrel.isFiery());
+    }
+
+    @Test
+    public void changeDirectionTest() {
+        Assertions.assertEquals(DIRECTION.LEFT, barrel.getDirection());
+        barrel.changeDirection();
+        Assertions.assertEquals(DIRECTION.RIGHT,barrel.getDirection());
     }
 }

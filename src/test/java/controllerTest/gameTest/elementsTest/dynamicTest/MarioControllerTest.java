@@ -177,7 +177,7 @@ public class MarioControllerTest {
     }
 
     @Test
-    public void MarioHasHammerAndMove(){
+    public void MarioHasHammerAndMove1(){
         mario = new Mario(new Position(5,13));
         Hammer hammer = new Hammer(new Position(5, 12));
 
@@ -206,6 +206,29 @@ public class MarioControllerTest {
         Assertions.assertEquals(new Position(4,13), mario.getPosition());
         Assertions.assertEquals(new Position(5,13), hammer.getPosition());
 
+    }
+
+    @Test
+    public void MarioHasHammerAndMove2(){
+        mario = new Mario(new Position(4,7));
+        Hammer hammer = new Hammer(new Position(4, 6));
+
+        arena.setMario(mario);
+        Assertions.assertFalse(marioController.hasHammer());
+        arena.setHammer(hammer);
+        Assertions.assertFalse(marioController.hasHammer());
+
+        marioController.jump();
+        Assertions.assertTrue(marioController.hasHammer());
+        Assertions.assertEquals(new Position(3,7), hammer.getPosition());
+
+        marioController.moveLeft();
+        Assertions.assertEquals(new Position(3, 7), mario.getPosition());
+        Assertions.assertEquals(new Position(2,7), hammer.getPosition());
+
+        marioController.moveDown();
+        Assertions.assertEquals(new Position(3, 7), mario.getPosition());
+        Assertions.assertEquals(new Position(2,7), hammer.getPosition());
     }
 
     @Test

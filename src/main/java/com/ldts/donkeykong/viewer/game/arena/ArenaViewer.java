@@ -5,10 +5,7 @@ import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.GameElement;
 import com.ldts.donkeykong.viewer.Viewer;
 import com.ldts.donkeykong.viewer.game.elements.GameElementViewer;
-import com.ldts.donkeykong.viewer.game.elements.dynamic.BarrelViewer;
-import com.ldts.donkeykong.viewer.game.elements.dynamic.DonkeyViewer;
-import com.ldts.donkeykong.viewer.game.elements.dynamic.HammerViewer;
-import com.ldts.donkeykong.viewer.game.elements.dynamic.MarioViewer;
+import com.ldts.donkeykong.viewer.game.elements.dynamic.*;
 import com.ldts.donkeykong.viewer.game.elements.nonDynamic.LadderViewer;
 import com.ldts.donkeykong.viewer.game.elements.nonDynamic.OilBarrelViewer;
 import com.ldts.donkeykong.viewer.game.elements.nonDynamic.PrincessViewer;
@@ -24,14 +21,16 @@ public class ArenaViewer extends Viewer<Arena> {
 
     @Override
     protected void drawElements(GUI gui) {
+        drawElements(gui, getModel().getLadders(), new LadderViewer());
+        drawElements(gui, getModel().getStructures(), new StructureViewer());
+        for (int i = 0; i < getModel().getFireEnemies().size(); i++)
+            drawElement(gui, getModel().getFireEnemies().get(i), new FireEnemyViewer());
         drawElement(gui, getModel().getMario(), new MarioViewer());
         drawElement(gui, getModel().getDonkey(), new DonkeyViewer());
         drawElement(gui, getModel().getHammer(), new HammerViewer());
         drawElement(gui, getModel().getOilBarrel(), new OilBarrelViewer());
         drawElement(gui, getModel().getPrincess(), new PrincessViewer());
         drawElements(gui, getModel().getBarrels(), new BarrelViewer());
-        drawElements(gui, getModel().getLadders(), new LadderViewer());
-        drawElements(gui, getModel().getStructures(), new StructureViewer());
     }
 
     private<T extends GameElement> void drawElements(GUI gui, List<T> elements, GameElementViewer<T> viewer) {
