@@ -90,14 +90,14 @@ public class FireEnemyControllerTest {
 
         arena.setFireEnemies(Arrays.asList(fireEnemy));
 
-        enemyController.step(app, GUI.ACTION.NONE, 500);
+        enemyController.step(app, GUI.ACTION.NONE, 350);
         Assertions.assertEquals(new Position(4,3), fireEnemy.getPosition());
 
-        enemyController.step(app, GUI.ACTION.NONE, 1000);
+        enemyController.step(app, GUI.ACTION.NONE, 700);
         Assertions.assertNotEquals(new Position(4,3), fireEnemy.getPosition());
         Position lastPosition = fireEnemy.getPosition();
 
-        enemyController.step(app, GUI.ACTION.NONE, 1501);
+        enemyController.step(app, GUI.ACTION.NONE, 1051);
         Assertions.assertNotEquals(lastPosition, fireEnemy.getPosition());
         lastPosition = fireEnemy.getPosition();
 
@@ -150,7 +150,7 @@ public class FireEnemyControllerTest {
         arena.setStructures(Arrays.asList(structure3, structure4));
         arena.setFireEnemies(Arrays.asList(fireEnemy2, fireEnemy3, fireEnemy4));
 
-        enemyController.step(app, GUI.ACTION.NONE, 499);
+        enemyController.step(app, GUI.ACTION.NONE, 349);
         Assertions.assertTrue(mario.isAlive());
         Assertions.assertEquals(new Position(6,7), fireEnemy2.getPosition());
         Assertions.assertEquals(new Position(2,7), fireEnemy3.getPosition());
@@ -192,7 +192,7 @@ public class FireEnemyControllerTest {
         arena.setStructures(Arrays.asList(structure5, structure6));
         arena.setFireEnemies(Arrays.asList(fireEnemy5, fireEnemy6, fireEnemy7));
 
-        enemyController.step(app, GUI.ACTION.NONE, 499);
+        enemyController.step(app, GUI.ACTION.NONE, 349);
         Assertions.assertTrue(mario.isAlive());
         Assertions.assertEquals(new Position(3,5), fireEnemy5.getPosition());
         Assertions.assertEquals(new Position(5,5), fireEnemy6.getPosition());
