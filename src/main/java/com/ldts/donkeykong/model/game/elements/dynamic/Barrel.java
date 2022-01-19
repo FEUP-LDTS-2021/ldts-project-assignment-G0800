@@ -19,11 +19,11 @@ public class Barrel extends DynamicElement {
     }
 
     public boolean isFirstDrop() {
-        return false;
+        return firstDrop;
     }
 
     public void deactivateFirstDrop() {
-
+        this.firstDrop = false;
     }
 
     public DIRECTION getDirection() {
