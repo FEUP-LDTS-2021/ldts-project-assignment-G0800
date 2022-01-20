@@ -27,7 +27,6 @@ public class MarioController extends Controller<Arena> {
         moveMario(getModel().getMario().getPosition().getLeft());
         if (hasHammer())
             getModel().getHammer().setPosition(getModel().getMario().getPosition().getLeft());
-
     }
 
     public void moveRight() {
@@ -71,9 +70,16 @@ public class MarioController extends Controller<Arena> {
         return hammer = hammer && getModel().getHammer() != null;
     }
 
+    public boolean princessAtLeft(){
+        return getModel().getMario().getPosition().getLeft().equals(getModel().getPrincess().getPosition());
+    }
+
+    public boolean princessAtRight(){
+        return getModel().getMario().getPosition().getRight().equals(getModel().getPrincess().getPosition());
+    }
+
     public boolean reachedPrincess() {
-        return getModel().getMario().getPosition().getLeft().equals(getModel().getPrincess().getPosition())
-                || getModel().getMario().getPosition().getRight().equals(getModel().getPrincess().getPosition());
+        return  princessAtLeft() || princessAtRight();
     }
 
     public boolean touchedBarrel() {
