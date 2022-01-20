@@ -8,6 +8,7 @@ import com.ldts.donkeykong.gui.GUI;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
 import com.ldts.donkeykong.model.menu.Menu;
+import com.ldts.donkeykong.states.MenuState;
 
 import java.io.IOException;
 
@@ -31,8 +32,8 @@ public class ArenaController extends GameController {
     }
 
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getMario().getScore() == 0) {
-
+        if (action == GUI.ACTION.QUIT || !getModel().getMario().isAlive()) {
+            application.setState(new MenuState(new Menu()));
         }
         else {
             marioController.step(application, action, time);

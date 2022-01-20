@@ -14,12 +14,21 @@ public class OilBarrelController extends GameController {
         super(arena);
     }
 
-    public boolean hasFieryBarrel(Barrel barrel) {
-        return false;
+    private boolean hasFieryBarrel(Barrel barrel) {
+        if(barrel.isFiery())
+            return getModel().getOilBarrel().getPosition().equals(barrel.getPosition());
+        else return false;
+    }
+
+    private void checkAllBarrels() {
+        for(int i = 0; i < getModel().getBarrels().size(); i++) {
+            if(hasFieryBarrel(getModel().getBarrels().get(i)))
+                getModel().removeBarrel(getModel().getBarrels().get(i));
+        }
     }
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-
+        checkAllBarrels();
     }
 }
