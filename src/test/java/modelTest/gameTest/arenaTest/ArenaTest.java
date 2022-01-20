@@ -15,54 +15,85 @@ import java.util.ArrayList;
 
 public class ArenaTest {
     Arena arena;
-    ArrayList<Barrel> barrels;
-    ArrayList<FireEnemy> fireEnemies;
-    ArrayList<Ladder> ladders;
-    ArrayList<Structure> structures;
-    Donkey donkey = new Donkey(new Position(1,1));
-    Hammer hammer = new Hammer(new Position(8,8));
-    Mario mario = new Mario(new Position(5,5));
-    OilBarrel oilBarrel = new OilBarrel(new Position(3,4));
-    Princess princess = new Princess(new Position(8,9));
+    ArrayList<Barrel> barrels = new ArrayList<>();
+    ArrayList<FireEnemy> fireEnemies = new ArrayList<>();
+    ArrayList<Ladder> ladders = new ArrayList<>();
+    ArrayList<Structure> structures = new ArrayList<>();
+    Donkey donkey = Mockito.mock(Donkey.class);
+    Hammer hammer = Mockito.mock(Hammer.class);
+    Mario mario = Mockito.mock(Mario.class);
+    OilBarrel oilBarrel = Mockito.mock(OilBarrel.class);
+    Princess princess = Mockito.mock(Princess.class);
 
     @BeforeEach
     public void helper() {
         arena = new Arena(10,10);
-        barrels = new ArrayList<>();
-        fireEnemies = new ArrayList<>();
-        ladders = new ArrayList<>();
+        createBarrels1();
+        createFireEnemies();
+        createLadders();
+        createStructure();
+        Mockito.when(donkey.getPosition()).thenReturn(new Position(1,1));
+        Mockito.when(hammer.getPosition()).thenReturn(new Position(8,8));
+        Mockito.when(mario.getPosition()).thenReturn(new Position(3,4));
+        Mockito.when(princess.getPosition()).thenReturn(new Position(8,9));
+
         arena.setDonkey(donkey);
-        arena.setBarrels(createBarrels(barrels));
-        arena.setFireEnemies(createFireEnemies(fireEnemies));
-        arena.setLadders(createLadders(ladders));
+        arena.setBarrels(barrels);
+        arena.setFireEnemies(fireEnemies);
+        arena.setLadders(ladders);
+        arena.setStructures(structures);
         arena.setHammer(hammer);
         arena.setMario(mario);
         arena.setOilBarrel(oilBarrel);
         arena.setPrincess(princess);
     }
 
-    private ArrayList<Barrel> createBarrels(ArrayList<Barrel> barrels) {
+    private void createBarrels1() {
         Barrel barrel = Mockito.mock(Barrel.class);
         Mockito.when(barrel.getPosition()).thenReturn(new Position(1,1));
         for(int i = 0; i < 5; i++) {
             barrels.add(barrel);
         }
-        return barrels;
     }
 
-    private ArrayList<FireEnemy> createFireEnemies(ArrayList<FireEnemy> fireEnemies) {
+    private ArrayList<Barrel> createBarrels2() {
+        ArrayList<Barrel> b = new ArrayList<>();
+        Barrel barrel = Mockito.mock(Barrel.class);
+        Mockito.when(barrel.getPosition()).thenReturn(new Position(1,2));
+        for(int i = 0; i < 2; i++) {
+            b.add(barrel);
+        }
+        return b;
+    }
+
+    private void createFireEnemies() {
         FireEnemy fireEnemy = Mockito.mock(FireEnemy.class);
         Mockito.when(fireEnemy.getPosition()).thenReturn(new Position(4,3));
         for(int i = 0; i < 5; i++) {
             fireEnemies.add(fireEnemy);
         }
-        return fireEnemies;
+    }
+
+    private void createFireEnemies2() {
+        FireEnemy fireEnemy = Mockito.mock(FireEnemy.class);
+        Mockito.when(fireEnemy.getPosition()).thenReturn(new Position(3,3));
+        for(int i = 0; i < 2; i++) {
+            fireEnemies.add(fireEnemy);
+        }
     }
 
     private ArrayList<Stair> createStairs() {
         ArrayList<Stair> stairs = new ArrayList<>();
         for (int i = 7; i >= 1; i--) {
-            stairs.add(new Stair(new Position(i,5)));
+            stairs.add(new Stair(new Position(5,i)));
+        }
+        return stairs;
+    }
+
+    private ArrayList<Stair> createStairs2() {
+        ArrayList<Stair> stairs = new ArrayList<>();
+        for (int i = 3; i >= 1; i--) {
+            stairs.add(new Stair(new Position(3,i)));
         }
         return stairs;
     }
@@ -70,29 +101,55 @@ public class ArenaTest {
     private ArrayList<Stair> createStairsStructure() {
         ArrayList<Stair> stairs = new ArrayList<>();
         for (int i = 1; i <= 7; i++) {
-            stairs.add(new Stair(new Position(5,i)));
+            stairs.add(new Stair(new Position(i,5)));
         }
         return stairs;
     }
 
-    private ArrayList<Structure> createStructure(ArrayList<Structure> structures) {
-        Structure structure = Mockito.mock(Structure.class);
-        Mockito.when(structure.getStairs()).thenReturn(createStairsStructure());
-        for(int i = 0; i < 3; i++) {
-            structures.add(structure);
+    private ArrayList<Stair> createStairsStructure2() {
+        ArrayList<Stair> stairs = new ArrayList<>();
+        for (int i = 1; i <= 3; i++) {
+            stairs.add(new Stair(new Position(i,7)));
         }
-        return structures;
+        return stairs;
     }
 
-    private ArrayList<Ladder> createLadders(ArrayList<Ladder> ladders) {
+    private void createLadders() {
         Ladder ladder = Mockito.mock(Ladder.class);
         Mockito.when(ladder.getStairs()).thenReturn(createStairs());
         for(int i = 0; i < 5; i++) {
             ladders.add(ladder);
         }
-        return ladders;
     }
 
+    private ArrayList<Ladder> createLadders2() {
+        ArrayList<Ladder> l = new ArrayList<>();
+        Ladder ladder = Mockito.mock(Ladder.class);
+        Mockito.when(ladder.getStairs()).thenReturn(createStairs2());
+        for(int i = 0; i < 2; i++) {
+            l.add(ladder);
+        }
+
+        return l;
+    }
+
+    private void createStructure() {
+        Structure structure = Mockito.mock(Structure.class);
+        Mockito.when(structure.getStairs()).thenReturn(createStairsStructure());
+        for(int i = 0; i < 3; i++) {
+            structures.add(structure);
+        }
+    }
+
+    private ArrayList<Structure> createStructure2() {
+        ArrayList<Structure> s = new ArrayList<>();
+        Structure structure = Mockito.mock(Structure.class);
+        Mockito.when(structure.getStairs()).thenReturn(createStairsStructure2());
+        for(int i = 0; i < 2; i++) {
+            s.add(structure);
+        }
+        return s;
+    }
 
     @Test
     public void getWidthTest() {
@@ -106,25 +163,31 @@ public class ArenaTest {
 
     @Test
     public void getBarrelsTest() {
-        ArrayList<Barrel> barrels = new ArrayList<>();
-        Assertions.assertEquals(createBarrels(barrels), barrels);
+        Assertions.assertEquals(barrels, arena.getBarrels());
     }
 
     @Test
     public void setBarrelsTest() {
-        arena.setBarrels(createBarrels(barrels));
-        Assertions.assertEquals(createBarrels(barrels), arena.getBarrels());
+        ArrayList<Barrel> barrels2 = createBarrels2();
+        arena.setBarrels(barrels2);
+
+        Assertions.assertEquals(2, arena.getBarrels().size());
+        Assertions.assertNotEquals(barrels, arena.getBarrels());
+        Assertions.assertEquals(barrels2, arena.getBarrels());
     }
 
     @Test
     public void getDonkeyTest() {
-       Assertions.assertEquals(donkey, arena.getDonkey());
+        Assertions.assertEquals(donkey, arena.getDonkey());
     }
 
     @Test
     public void setDonkeyTest() {
-        Position p= new Position (8,50);
-        arena.setDonkey(new Donkey(p));
+        Donkey donkey2 = Mockito.mock(Donkey.class);
+        Mockito.when(donkey2.getPosition()).thenReturn(new Position(8,50));
+
+        arena.setDonkey(donkey2);
+        Assertions.assertEquals(donkey2, arena.getDonkey());
         Assertions.assertEquals(8, arena.getDonkey().getPosition().getX());
         Assertions.assertEquals(50, arena.getDonkey().getPosition().getY());
     }
@@ -136,8 +199,12 @@ public class ArenaTest {
 
     @Test
     public void setFireEnemiesTest() {
-        arena.setFireEnemies(createFireEnemies(fireEnemies));
-        Assertions.assertEquals(createFireEnemies(fireEnemies),arena.getFireEnemies());
+        fireEnemies.clear();
+        createFireEnemies2();
+        arena.setFireEnemies(fireEnemies);
+
+        Assertions.assertEquals(2, arena.getFireEnemies().size());
+        Assertions.assertEquals(fireEnemies, arena.getFireEnemies());
     }
 
     @Test
@@ -147,9 +214,12 @@ public class ArenaTest {
 
     @Test
     public void setHammerTest() {
-        Hammer newHammer = new Hammer(new Position(5,3));
+        Hammer newHammer = Mockito.mock(Hammer.class);
+        Mockito.when(newHammer.getPosition()).thenReturn(new Position(5,3));
         arena.setHammer(newHammer);
+
         Assertions.assertEquals(newHammer, arena.getHammer());
+        Assertions.assertEquals(new Position(5,3), arena.getHammer().getPosition());
     }
 
     @Test
@@ -159,9 +229,12 @@ public class ArenaTest {
 
     @Test
     public void setMarioTest() {
-        Mario anotherMario = new Mario(new Position(2,3));
+        Mario anotherMario = Mockito.mock(Mario.class);
+        Mockito.when(anotherMario.getPosition()).thenReturn(new Position(2,3));
         arena.setMario(anotherMario);
+
         Assertions.assertEquals(anotherMario, arena.getMario());
+        Assertions.assertEquals(new Position(2,3), arena.getMario().getPosition());
     }
 
     @Test
@@ -171,9 +244,12 @@ public class ArenaTest {
 
     @Test
     public void setOilBarrelTest() {
-        OilBarrel newOilBarrel = new OilBarrel(new Position(3,7));
+        OilBarrel newOilBarrel = Mockito.mock(OilBarrel.class);
+        Mockito.when(newOilBarrel.getPosition()).thenReturn(new Position(3,7));
         arena.setOilBarrel(newOilBarrel);
+
         Assertions.assertEquals(newOilBarrel,arena.getOilBarrel());
+        Assertions.assertEquals(new Position(3,7), arena.getOilBarrel().getPosition());
     }
 
     @Test
@@ -183,9 +259,12 @@ public class ArenaTest {
 
     @Test
     public void setPrincessTest() {
-        Princess newPrincess = new Princess(new Position(7,8));
+        Princess newPrincess = Mockito.mock(Princess.class);
+        Mockito.when(newPrincess.getPosition()).thenReturn(new Position(7,8));
         arena.setPrincess(newPrincess);
+
         Assertions.assertEquals(newPrincess, arena.getPrincess());
+        Assertions.assertEquals(new Position(7,8), arena.getPrincess().getPosition());
     }
 
 
@@ -196,9 +275,12 @@ public class ArenaTest {
 
     @Test
     public void setLaddersTest() {
-        ArrayList<Ladder> ladders = new ArrayList<>();
-        arena.setLadders(createLadders(ladders));
-        Assertions.assertEquals(createLadders(ladders),arena.getLadders());
+        ArrayList<Ladder> ladders2 = createLadders2();
+        arena.setLadders(ladders2);
+
+        Assertions.assertEquals(2, arena.getLadders().size());
+        Assertions.assertNotEquals(ladders, arena.getLadders());
+        Assertions.assertEquals(ladders2,arena.getLadders());
     }
 
     @Test
@@ -208,9 +290,13 @@ public class ArenaTest {
 
     @Test
     public void setStructuresTest() {
-        ArrayList<Structure> structures = new ArrayList<>();
-        arena.setStructures(createStructure(structures));
-        Assertions.assertEquals(createStructure(structures),arena.getStructures());
+        structures.clear();
+        ArrayList<Structure> structures2 = createStructure2();
+        arena.setStructures(structures2);
+
+        Assertions.assertEquals(2,arena.getStructures().size());
+        Assertions.assertNotEquals(structures, arena.getStructures());
+        Assertions.assertEquals(structures2, arena.getStructures());
     }
 
     @Test
@@ -261,16 +347,36 @@ public class ArenaTest {
 
     @Test
     public void isLadderTest() {
-        Assertions.assertTrue(arena.isLadder(new Position(1,5)));
-        Assertions.assertTrue(arena.isLadder(new Position(2,5)));
-        Assertions.assertTrue(arena.isLadder(new Position(3,5)));
-        Assertions.assertTrue(arena.isLadder(new Position(4,5)));
-        Assertions.assertTrue(arena.isLadder(new Position(5,5)));
-        Assertions.assertTrue(arena.isLadder(new Position(6,5)));
-        Assertions.assertTrue(arena.isLadder(new Position(7,5)));
-        Assertions.assertFalse(arena.isLadder(new Position(8,5)));
-        Assertions.assertFalse(arena.isLadder(new Position(9,5)));
+        Assertions.assertFalse(arena.isLadder(new Position(5,9)));
+        Assertions.assertFalse(arena.isLadder(new Position(5,8)));
 
+        Assertions.assertTrue(arena.isLadder(new Position(5,7)));
+        Assertions.assertTrue(arena.isLadder(new Position(5,6)));
+        Assertions.assertTrue(arena.isLadder(new Position(5,5)));
+        Assertions.assertTrue(arena.isLadder(new Position(5,4)));
+        Assertions.assertTrue(arena.isLadder(new Position(5,3)));
+        Assertions.assertTrue(arena.isLadder(new Position(5,2)));
+        Assertions.assertTrue(arena.isLadder(new Position(5,1)));
+
+        Assertions.assertFalse(arena.isLadder(new Position(5,0)));
+        Assertions.assertFalse(arena.isLadder(new Position(5,-1)));
+    }
+
+    @Test
+    public void isStructure(){
+        Assertions.assertFalse(arena.isStructure(new Position(-1,5)));
+        Assertions.assertFalse(arena.isStructure(new Position(0,5)));
+
+        Assertions.assertTrue(arena.isStructure(new Position(1,5)));
+        Assertions.assertTrue(arena.isStructure(new Position(2,5)));
+        Assertions.assertTrue(arena.isStructure(new Position(3,5)));
+        Assertions.assertTrue(arena.isStructure(new Position(4,5)));
+        Assertions.assertTrue(arena.isStructure(new Position(5,5)));
+        Assertions.assertTrue(arena.isStructure(new Position(6,5)));
+        Assertions.assertTrue(arena.isStructure(new Position(7,5)));
+
+        Assertions.assertFalse(arena.isStructure(new Position(8,5)));
+        Assertions.assertFalse(arena.isStructure(new Position(9,5)));
     }
 
     @Test
@@ -279,4 +385,27 @@ public class ArenaTest {
         Assertions.assertFalse(arena.isHammer(new Position(4,3)));
         Assertions.assertFalse(arena.isHammer(new Position(7,4)));
     }
+
+    @Test
+    public void hasStructureBelowTest(){
+        Assertions.assertFalse(arena.hasStructureBelow(new Position(-1,4)));
+        Assertions.assertFalse(arena.hasStructureBelow(new Position(0,4)));
+
+        Assertions.assertTrue(arena.hasStructureBelow(new Position(1,4)));
+        Assertions.assertTrue(arena.hasStructureBelow(new Position(2,4)));
+        Assertions.assertTrue(arena.hasStructureBelow(new Position(3,4)));
+        Assertions.assertTrue(arena.hasStructureBelow(new Position(4,4)));
+        Assertions.assertTrue(arena.hasStructureBelow(new Position(5,4)));
+        Assertions.assertTrue(arena.hasStructureBelow(new Position(6,4)));
+        Assertions.assertTrue(arena.hasStructureBelow(new Position(7,4)));
+
+        Assertions.assertFalse(arena.hasStructureBelow(new Position(8,4)));
+        Assertions.assertFalse(arena.hasStructureBelow(new Position(9,4)));
+
+        Assertions.assertFalse(arena.hasStructureBelow(new Position(1,5)));
+        Assertions.assertFalse(arena.hasStructureBelow(new Position(4,5)));
+        Assertions.assertFalse(arena.hasStructureBelow(new Position(7,5)));
+
+    }
+
 }
