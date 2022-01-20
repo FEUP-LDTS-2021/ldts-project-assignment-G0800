@@ -181,6 +181,6 @@ public class Arena {
     }
 
     public boolean hasStructureBelow(Position position){
-        return false;
+        return isInArena(position) && isStructure(position.getDown());
     }
 }
