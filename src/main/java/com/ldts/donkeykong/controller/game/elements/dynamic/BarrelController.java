@@ -12,8 +12,11 @@ import java.io.IOException;
 
 public class BarrelController extends GameController {
 
+    long lastTime;
+
     public BarrelController(Arena arena) {
         super(arena);
+        this.lastTime = 0;
     }
 
     private void moveBarrels() {
@@ -51,6 +54,9 @@ public class BarrelController extends GameController {
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        moveBarrels();
+        if(time - lastTime > 350) {
+            moveBarrels();
+            this.lastTime = time;
+        }
     }
 }
