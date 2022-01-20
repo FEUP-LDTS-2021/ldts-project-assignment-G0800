@@ -20,7 +20,7 @@ public class FireEnemyController extends Controller<Arena> {
     }
 
     public void moveFireEnemy(FireEnemy fireEnemy, Position position){
-        if (getModel().isInArena(position) && getModel().isStructure(position.getDown())){
+        if (getModel().hasStructureBelow(position)){
             fireEnemy.setPosition(position);
             if (touchedMario(fireEnemy))
                 getModel().getMario().setAsDead();
@@ -30,16 +30,14 @@ public class FireEnemyController extends Controller<Arena> {
     @Override
     public void step(Application application, GUI.ACTION action, long time){
         if (time - lastMove > 350){
-
             for (FireEnemy f: getModel().getFireEnemies()){
                 Position enemyPosition = f.getPosition();
                 Position nextPosition;
 
                 if (marioAtRight(f))
-                    nextPosition = getModel().isStructure(enemyPosition.getRight().getDown()) ? enemyPosition.getRight() : enemyPosition.getLeft();
+                    nextPosition = getModel().hasStructureBelow(enemyPosition.getRight()) ? enemyPosition.getRight() : enemyPosition.getLeft();
                 else if (marioAtLeft(f))
-                    nextPosition = getModel().isStructure(enemyPosition.getLeft().getDown()) ? enemyPosition.getLeft() : enemyPosition.getRight();
-
+                    nextPosition = getModel().hasStructureBelow(enemyPosition.getLeft()) ? enemyPosition.getLeft() : enemyPosition.getRight();
                 else
                     nextPosition = (int) (Math.random() * 2) == 1 ? enemyPosition.getRight() : enemyPosition.getLeft();
 
