@@ -32,8 +32,16 @@ public class BarrelTest {
 
     @Test
     public void changeDirectionTest() {
-        Assertions.assertEquals(DIRECTION.LEFT, barrel.getDirection());
+        Assertions.assertEquals(DIRECTION.RIGHT, barrel.getDirection());
         barrel.changeDirection();
-        Assertions.assertEquals(DIRECTION.RIGHT,barrel.getDirection());
+        Assertions.assertEquals(DIRECTION.LEFT,barrel.getDirection());
+    }
+
+    @Test
+    public void deactivateFirstDropTest()  {
+        Barrel b = new Barrel(new Position(3,3),false);
+        Assertions.assertTrue(b.isFirstDrop());
+        b.deactivateFirstDrop();
+        Assertions.assertFalse(b.isFirstDrop());
     }
 }

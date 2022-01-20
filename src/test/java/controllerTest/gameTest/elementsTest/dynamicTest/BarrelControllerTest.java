@@ -6,7 +6,6 @@ import com.ldts.donkeykong.gui.GUI;
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
-import com.ldts.donkeykong.model.game.elements.dynamic.Hammer;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -26,15 +25,17 @@ public class BarrelControllerTest {
 
     private ArrayList<Barrel> createBarrels() {
         ArrayList<Barrel> barrels = new ArrayList<>();
-        barrels.add(new Barrel(new Position(1,2),false));
+        barrels.add(new Barrel(new Position(0,0),false));
         return barrels;
     }
 
     private ArrayList<Structure> createStructures() {
         ArrayList<Structure> structures = new ArrayList<>();
-        Structure structureTop = new Structure(new Position(1,3),6);
-        Structure structureBottom = new Structure(new Position(5,5),7);
+        Structure structureTop = new Structure(new Position(0,3),7);
+        Structure structureMiddle = new Structure(new Position(5,5),5);
+        Structure structureBottom = new Structure(new Position(0,9),10);
         structures.add(structureTop);
+        structures.add(structureMiddle);
         structures.add(structureBottom);
         return structures;
     }
@@ -43,15 +44,15 @@ public class BarrelControllerTest {
     public void createData() {
         app = Mockito.mock(Application.class);
         arena = new Arena(10,10);
-        arena.setHammer(new Hammer(new Position(1,1)));
         arena.setBarrels(createBarrels());
         arena.setStructures(createStructures());
         barrelController = new BarrelController(arena);
     }
 
     @Test
-    public void moveBarrelsTest() throws IOException {
-        for (int i = 1; i <= 7; i++) {
+    public void moveAndRemoveBarrelsTest() throws IOException {
+        //Move Barrels Test
+        for (int i = 1; i <= 10; i++) {
             barrelController.step(app, GUI.ACTION.NONE,0);
         }
         Assertions.assertEquals(7,arena.getBarrels().get(0).getPosition().getX());
@@ -61,22 +62,18 @@ public class BarrelControllerTest {
         }
         Assertions.assertEquals(5,arena.getBarrels().get(0).getPosition().getX());
         Assertions.assertEquals(4,arena.getBarrels().get(0).getPosition().getY());
-        for (int i = 1; i <= 6 ; i++) {
+        for (int i = 1; i <= 5 ; i++) {
             barrelController.step(app, GUI.ACTION.NONE,0);
         }
         Assertions.assertEquals(4,arena.getBarrels().get(0).getPosition().getX());
-        Assertions.assertEquals(9,arena.getBarrels().get(0).getPosition().getY());
-        for (int i = 1; i <= 4; i++) {
+        Assertions.assertEquals(8,arena.getBarrels().get(0).getPosition().getY());
+        for (int i = 1; i <= 5; i++) {
             barrelController.step(app, GUI.ACTION.NONE,0);
         }
-        Assertions.assertEquals(0,arena.getBarrels().get(0).getPosition().getX());
-        Assertions.assertEquals(9,arena.getBarrels().get(0).getPosition().getY());
+        Assertions.assertEquals(9,arena.getBarrels().get(0).getPosition().getX());
+        Assertions.assertEquals(8,arena.getBarrels().get(0).getPosition().getY());
 
-
-    }
-
-    @Test
-    public void removeBarrelTest() throws IOException {
+        //Remove Barrel Test
         Assertions.assertEquals(1,arena.getBarrels().size());
         barrelController.step(app, GUI.ACTION.NONE,0);
         Assertions.assertEquals(1,arena.getBarrels().size());

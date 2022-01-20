@@ -6,16 +6,14 @@ import com.ldts.donkeykong.gui.GUI;
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
+import com.ldts.donkeykong.model.game.elements.dynamic.DIRECTION;
 
 import java.io.IOException;
 
 public class BarrelController extends GameController {
 
-    Direction direction;
-
     public BarrelController(Arena arena) {
         super(arena);
-        direction = Direction.RIGHT;
     }
 
     private void moveBarrels() {
@@ -33,13 +31,17 @@ public class BarrelController extends GameController {
         else if(!getModel().isStructure(barrel.getPosition().getDown()) && getModel().isInArena(barrel.getPosition().getDown())) {
 
             barrel.setPosition(barrel.getPosition().getDown());
-            if(!barrelFalling(barrel) && direction.equals(Direction.RIGHT)) direction = Direction.LEFT;
-            else if(!barrelFalling(barrel) && direction.equals(Direction.LEFT)) direction = Direction.RIGHT;
+            if(!barrel.isFirstDrop()) {
+                if(!barrelFalling(barrel) && barrel.getDirection().equals(DIRECTION.RIGHT)) barrel.changeDirection();
+                else if(!barrelFalling(barrel) && barrel.getDirection().equals(DIRECTION.LEFT)) barrel.changeDirection();
+            }
 
-        } else if(direction.equals(Direction.RIGHT)) {
+        } else if(barrel.getDirection().equals(DIRECTION.RIGHT)) {
             barrel.setPosition(barrel.getPosition().getRight());
-        } else if (direction.equals(Direction.LEFT)) {
+            if(barrel.isFirstDrop()) barrel.deactivateFirstDrop();
+        } else if (barrel.getDirection().equals(DIRECTION.LEFT)) {
             barrel.setPosition(barrel.getPosition().getLeft());
+            if(barrel.isFirstDrop()) barrel.deactivateFirstDrop();
         }
     }
 
@@ -51,6 +53,4 @@ public class BarrelController extends GameController {
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
         moveBarrels();
     }
-
-    enum Direction {LEFT,RIGHT}
 }
