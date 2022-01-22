@@ -18,6 +18,7 @@ import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.mockito.Mockito.mock;
 
@@ -167,10 +168,12 @@ public class MarioControllerTest {
     public void jumpTest(){
         mario = new Mario(new Position(6,13));
         Barrel barrel = mock (Barrel.class);
+        Hammer hammer = new Hammer(new Position(10, 10));
         Mockito.when(barrel.getPosition()).thenReturn(new Position(6,13));
 
         arena.setMario(mario);
         arena.setBarrels(Arrays.asList(barrel));
+        arena.setHammer(hammer);
 
         marioController.jump();
         Assertions.assertEquals(100, mario.getScore());
@@ -212,7 +215,9 @@ public class MarioControllerTest {
     public void MarioHasHammerAndMove2(){
         mario = new Mario(new Position(4,7));
         Hammer hammer = new Hammer(new Position(4, 6));
+        List<FireEnemy> fireEnemies = new ArrayList<>();
 
+        arena.setFireEnemies(fireEnemies);
         arena.setMario(mario);
         Assertions.assertFalse(marioController.hasHammer());
         arena.setHammer(hammer);
