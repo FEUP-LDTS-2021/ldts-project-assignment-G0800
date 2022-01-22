@@ -28,6 +28,8 @@ public class BarrelController extends GameController {
     private void moveBarrel(Barrel barrel) {
         if(!getModel().isInArena(barrel.getPosition())) getModel().removeBarrel(barrel);
 
+        if(getModel().getMario().getPosition().equals(barrel.getPosition())) getModel().getMario().setAsDead();
+
         if(barrel.getPosition().equals(new Position(getModel().getHeight()-1,getModel().getWidth()-1)))
             getModel().removeBarrel(barrel);
 
