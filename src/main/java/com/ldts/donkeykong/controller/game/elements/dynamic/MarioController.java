@@ -36,28 +36,42 @@ public class MarioController extends Controller<Arena> {
             getModel().getHammer().setPosition(getModel().getMario().getPosition().getRight());
 
     }
+    /*for(FireEnemy fireEnemy: getModel().getFireEnemies()) {
+        if(fireEnemy.getPosition().getX() + 1 == getModel().getMario().getPosition().getX() && fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY()) {
+            moveMario(new Position(getModel().getMario().getPosition().getX() - 2, getModel().getMario().getPosition().getY()));
+        }
+        else if(fireEnemy.getPosition().getX() - 1 == getModel().getMario().getPosition().getX() && fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY()) {
+            moveMario(new Position(getModel().getMario().getPosition().getX() + 2, getModel().getMario().getPosition().getY()));
+        }*/
 
     public void jump() {
         if (!getModel().isLadder(getModel().getMario().getPosition())) {
+
+            boolean fireEnemyClose = false;
+
             for(FireEnemy fireEnemy: getModel().getFireEnemies()) {
-                if(fireEnemy.getPosition().getX() + 1 == getModel().getMario().getPosition().getX() && fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY()) {
+                if (fireEnemy.getPosition().getX() + 1 == getModel().getMario().getPosition().getX() && fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY()) {
                     moveMario(new Position(getModel().getMario().getPosition().getX() - 2, getModel().getMario().getPosition().getY()));
+                    fireEnemyClose = true;
                 }
-                else if(fireEnemy.getPosition().getX() - 1 == getModel().getMario().getPosition().getX() && fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY()) {
+                else if (fireEnemy.getPosition().getX() - 1 == getModel().getMario().getPosition().getX() && fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY()) {
                     moveMario(new Position(getModel().getMario().getPosition().getX() + 2, getModel().getMario().getPosition().getY()));
+                    fireEnemyClose = true;
                 }
             }
 
-            getModel().getMario().setPosition(getModel().getMario().getPosition().getUp());
+            if(!fireEnemyClose) {
+                getModel().getMario().setPosition(getModel().getMario().getPosition().getUp());
 
-            if (getModel().isBarrel(getModel().getMario().getPosition().getDown()) || getModel().isFireEnemy(getModel().getMario().getPosition().getDown()))
-                getModel().getMario().increaseScore();
+                if (getModel().isBarrel(getModel().getMario().getPosition().getDown()) || getModel().isFireEnemy(getModel().getMario().getPosition().getDown()))
+                    getModel().getMario().increaseScore();
 
-            if (getModel().isHammer(getModel().getMario().getPosition())){
-                hammer = true;
-                getModel().getHammer().setPosition(getModel().getMario().getPosition().getDown().getLeft());
+                if (getModel().isHammer(getModel().getMario().getPosition())){
+                    hammer = true;
+                    getModel().getHammer().setPosition(getModel().getMario().getPosition().getDown().getLeft());
+                }
+                moveDown();
             }
-            moveDown();
         }
     }
 
