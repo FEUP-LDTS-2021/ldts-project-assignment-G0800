@@ -7,6 +7,7 @@ import com.ldts.donkeykong.gui.GUI;
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
+import com.ldts.donkeykong.model.game.elements.dynamic.Mario;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Structure;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
@@ -109,5 +110,22 @@ public class BarrelControllerTest {
          Assertions.assertEquals(p4, barrel1.getPosition());
          Assertions.assertEquals(p5, barrel2.getPosition());
          Assertions.assertEquals(p6, barrel3.getPosition());
+    }
+
+    @Test
+    public void setMarioAsDeadTest() throws IOException {
+        long time = 351;
+        Mario mario = new Mario(new Position(4,2));
+        Barrel barrel = new Barrel(new Position(0,2),false);
+        List<Barrel> barrels = new ArrayList<>();
+        barrels.add(barrel);
+        arena.setBarrels(barrels);
+        arena.setMario(mario);
+        Assertions.assertTrue(arena.getMario().isAlive());
+        for (int i = 1; i <= 5; i++) {
+            barrelController.step(app, GUI.ACTION.NONE, time);
+            time+=time;
+        }
+        Assertions.assertFalse(arena.getMario().isAlive());
     }
 }
