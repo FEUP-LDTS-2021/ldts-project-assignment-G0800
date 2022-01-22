@@ -11,7 +11,6 @@ import java.util.List;
 public abstract class ArenaBuilder {
     public Arena createArena() {
         Arena arena = new Arena(getWidth(), getHeight());
-        arena.setBarrels(createBarrels());
         arena.setDonkey(createDonkey());
         arena.setFireEnemies(createFireEnemies());
         arena.setHammer(createHammer());
@@ -32,8 +31,6 @@ public abstract class ArenaBuilder {
     protected abstract Mario createMario();
 
     protected abstract Princess createPrincess();
-
-    protected abstract List<Barrel> createBarrels();
 
     protected abstract List<FireEnemy> createFireEnemies();
 
