@@ -44,6 +44,8 @@ public class BarrelControllerTest {
     public void createData() {
         app = Mockito.mock(Application.class);
         arena = new Arena(10,10);
+        Mario mario = new Mario(new Position(4,2));
+        arena.setMario(mario);
         arena.setBarrels(createBarrels());
         arena.setStructures(createStructures());
         barrelController = new BarrelController(arena);
@@ -115,12 +117,10 @@ public class BarrelControllerTest {
     @Test
     public void setMarioAsDeadTest() throws IOException {
         long time = 351;
-        Mario mario = new Mario(new Position(4,2));
         Barrel barrel = new Barrel(new Position(0,2),false);
         List<Barrel> barrels = new ArrayList<>();
         barrels.add(barrel);
         arena.setBarrels(barrels);
-        arena.setMario(mario);
         Assertions.assertTrue(arena.getMario().isAlive());
         for (int i = 1; i <= 5; i++) {
             barrelController.step(app, GUI.ACTION.NONE, time);
