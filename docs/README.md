@@ -56,13 +56,13 @@ Participating classes: AbstractFactory - GameElement
 Why we decided to use it:
 - it isolates clients from implementation classes (defining the game element as an abstract superclass for all game elements, and separating the elements by dynamic ones and static ones, letting these subclasses be responsible to create the instance of the class)
 
-**States Pattern**
+**State Pattern**
 
 <p align="center" justify="center">
   <img src="/docs/images/screenshots/UML/state.png" alt="State Pattern Image"/>
 </p>
 <p align="center">
-  <b><i>States Pattern </i></b>
+  <b><i>State Pattern </i></b>
 </p>
 
 <br>
