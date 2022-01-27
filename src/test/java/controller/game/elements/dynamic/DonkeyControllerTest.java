@@ -31,10 +31,26 @@ public class DonkeyControllerTest {
 
     @Test
     public void throwBarrelTest() throws IOException {
+
         controller.step(app, GUI.ACTION.NONE, 1000);
+        Assertions.assertEquals(0, arena.getBarrels().size());
+
+        controller.step(app, GUI.ACTION.NONE, 3499);
+        Assertions.assertEquals(0, arena.getBarrels().size());
+
+        controller.step(app, GUI.ACTION.NONE, 3500);
+        Assertions.assertEquals(0, arena.getBarrels().size());
+
+        controller.step(app, GUI.ACTION.NONE, 3501);
         Assertions.assertEquals(1, arena.getBarrels().size());
 
-        controller.step(app, GUI.ACTION.NONE, 2000);
+        controller.step(app, GUI.ACTION.NONE, 7000);
+        Assertions.assertEquals(1, arena.getBarrels().size());
+
+        controller.step(app, GUI.ACTION.NONE, 10501);
         Assertions.assertEquals(2, arena.getBarrels().size());
+
+        controller.step(app, GUI.ACTION.NONE, 20000);
+        Assertions.assertEquals(3, arena.getBarrels().size());
     }
 }
