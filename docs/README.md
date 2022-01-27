@@ -9,7 +9,7 @@ You can move the character using
 - `Left arrow` to move left
 - `Right arrow` to move right
 - `Up arrow` to climb ladders
-- `Tab` to jump over barrels and fire enemies
+- `Tab` to jump fire enemies
 
 
 - Mario can only walk on top of the structures
@@ -38,18 +38,39 @@ Why we decided to use it:
 
 **Abstract Factory Pattern**
 
-//meter aqui screenshot do uml
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/UML/abstractfactory.jpeg"/>
+</p>
+<p align="center">
+  <b><i>Abstract Factory Pattern </i></b>
+</p>
 
-Participating classes: 
+<br>
+<br />
+
+Participating classes: AbstractFactory - GameElement
+                       Concrete factory - StaticElement (concrete products - Princess, Structure, Stair, Ladder, OilBarrel), DynamicElement (concrete products - FireEnemy, Hammer, Mario, Barrel, Donkey)
+                       Client - Arena
+                        
 
 Why we decided to use it:
 - it isolates clients from implementation classes (defining the game element as an abstract superclass for all game elements, and separating the elements by dynamic ones and static ones, letting these subclasses be responsible to create the instance of the class)
 
 **States Pattern**
 
-<img src="docs/images/screenshots/UML/state.jpeg"/>
+<p align="center" justify="center">
+  <img src="docs/images/screenshots/UML/state.jpeg"/>
+</p>
+<p align="center">
+  <b><i>States Pattern </i></b>
+</p>
 
-Participating classes: MenuState, GameState, InstructionState, State
+<br>
+<br />
+
+Participating classes: Context - Application
+                       State - State
+                       Concrete states - MenuState, GameState, InstructionState
 
 Why we decided to use it:
 - minimizes conditional complexity, eliminating the need for if and switch statements in objects that have different behavior requirements unique to different state transitions
