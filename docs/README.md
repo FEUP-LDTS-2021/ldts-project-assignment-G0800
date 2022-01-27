@@ -21,7 +21,7 @@ This project was developed by Gabriel Machado Jr. (up202008860@edu.fe.up.pt), Mi
 ## Design Patterns
 **Architectural Pattern**
 
-<img src="docs/images/mvc.png"/>
+<img src="/docs/images/mvc.png" alt="MVC Image"/>
 
 To approach the way the game is built, we decided to implement the MVC (Model-Viewer-Controller) design pattern:
 
@@ -47,7 +47,7 @@ Why we decided to use it:
 
 **States Pattern**
 
-<img src="docs/images/screenshots/UML/state.jpeg"/>
+<img src="/docs/images/screenshots/UML/state.jpeg" alt="State Pattern Image"/>
 
 Participating classes: MenuState, GameState, InstructionState, State
 
