@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 group 'com.ldts.donkeykong'
-version '1.0'
+version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -20,4 +21,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+pitest {
+    junit5PluginVersion = '0.12'
+    //targetClasses = ['com.ldts.donkeykong.*']
 }
