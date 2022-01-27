@@ -45,20 +45,11 @@ Participating classes:
 Why we decided to use it:
 - it isolates clients from implementation classes (defining the game element as an abstract superclass for all game elements, and separating the elements by dynamic ones and static ones, letting these subclasses be responsible to create the instance of the class)
 
-**Builder Pattern**
-
-//screenshot do uml
-
-Participating classes:
-
-Why we decided to use it:
-- allows to vary a product's internal representation (Structure and Ladder both use Stair)
-
 **States Pattern**
 
-//screenshot uml
+<img src="docs/images/screenshots/UML/state.jpeg"/>
 
-Participating classes:
+Participating classes: MenuState, GameState, InstructionState, State
 
 Why we decided to use it:
 - minimizes conditional complexity, eliminating the need for if and switch statements in objects that have different behavior requirements unique to different state transitions
@@ -71,4 +62,5 @@ Why we decided to use it:
 - Hammer
 - Moving enemies with different movements (barrels and fire enemies)
 
+## Code Smells and Refactorings
 
