@@ -59,7 +59,7 @@ Why we decided to use it:
 **States Pattern**
 
 <p align="center" justify="center">
-  <img src="/docs/images/screenshots/UML/state.jpeg" alt="State Pattern Image"/>
+  <img src="/docs/images/screenshots/UML/state.png" alt="State Pattern Image"/>
 </p>
 <p align="center">
   <b><i>States Pattern </i></b>
