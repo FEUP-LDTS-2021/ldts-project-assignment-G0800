@@ -39,7 +39,7 @@ Why we decided to use it:
 **Abstract Factory Pattern**
 
 <p align="center" justify="center">
-  <img src="docs/images/screenshots/UML/abstractfactory.jpeg"/>
+  <img src="docs/images/screenshots/UML/abstractfactory.png"/>
 </p>
 <p align="center">
   <b><i>Abstract Factory Pattern </i></b>
@@ -59,7 +59,7 @@ Why we decided to use it:
 **States Pattern**
 
 <p align="center" justify="center">
-  <img src="docs/images/screenshots/UML/state.jpeg"/>
+  <img src="docs/images/screenshots/UML/state.png"/>
 </p>
 <p align="center">
   <b><i>States Pattern </i></b>
