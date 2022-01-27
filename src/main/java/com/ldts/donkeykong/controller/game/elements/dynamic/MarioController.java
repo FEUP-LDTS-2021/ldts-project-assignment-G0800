@@ -36,13 +36,6 @@ public class MarioController extends Controller<Arena> {
             getModel().getHammer().setPosition(getModel().getMario().getPosition().getRight());
 
     }
-    /*for(FireEnemy fireEnemy: getModel().getFireEnemies()) {
-        if(fireEnemy.getPosition().getX() + 1 == getModel().getMario().getPosition().getX() && fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY()) {
-            moveMario(new Position(getModel().getMario().getPosition().getX() - 2, getModel().getMario().getPosition().getY()));
-        }
-        else if(fireEnemy.getPosition().getX() - 1 == getModel().getMario().getPosition().getX() && fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY()) {
-            moveMario(new Position(getModel().getMario().getPosition().getX() + 2, getModel().getMario().getPosition().getY()));
-        }*/
 
     public void jump() {
         if (!getModel().isLadder(getModel().getMario().getPosition())) {
