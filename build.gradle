@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'info.solidsoft.pitest' version '1.7.0'
+    id 'application'
 }
 
 group 'com.ldts.donkeykong'
@@ -24,6 +25,18 @@ test {
 }
 
 pitest {
-    junit5PluginVersion = '0.12'
-    //targetClasses = ['com.ldts.donkeykong.*']
+    junit5PluginVersion = '0.15'
+    pitestVersion = '1.6.7'
+    excludedTestClasses = ['com.ldts.donkeykong.ArenaTest',
+                           'com.ldts.donkeykong.FireEnemyControllerTest',
+                           'com.ldts.donkeykong.BarrelControllerTest',
+                           'com.ldts.donkeykong.DonkeyControllerTest',
+                           'com.ldts.donkeykong.HammerControllerTest',
+                           'com.ldts.donkeykong.MarioControllerTest',
+                           'com.ldts.donkeykong.OilBarrelControllerTest']
+    verbose = true
+}
+
+application {
+    mainClass.set("com.ldts.donkeykong.Application")
 }

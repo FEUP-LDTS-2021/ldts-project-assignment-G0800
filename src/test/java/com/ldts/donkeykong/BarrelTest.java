@@ -1,4 +1,4 @@
-package model.gameTest.elementsTest.dynamicTest;
+package com.ldts.donkeykong;
 
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;

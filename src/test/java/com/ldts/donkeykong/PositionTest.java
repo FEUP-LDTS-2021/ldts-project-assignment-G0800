@@ -1,4 +1,4 @@
-package model.baseTest;
+package com.ldts.donkeykong;
 
 import com.ldts.donkeykong.model.base.Position;
 import org.junit.jupiter.api.Assertions;
