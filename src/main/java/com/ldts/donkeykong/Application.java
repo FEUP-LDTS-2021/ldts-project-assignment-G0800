@@ -28,7 +28,7 @@ public class Application {
     }
 
     private void start() throws IOException {
-        int FPS = 15;
+        int FPS = 30;
         int frameTime = 1000 / FPS;
 
         while (this.state != null) {
@@ -42,6 +42,7 @@ public class Application {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
 

@@ -44,24 +44,6 @@ public class ArenaBuilderLoader extends ArenaBuilder {
     }
 
     @Override
-    protected List<Barrel> createBarrels() {
-        List<Barrel> barrels = new ArrayList<>();
-        for (int y = 0; y < lines.size(); y++) {
-            String line = lines.get(y);
-            for (int x = 0; x < line.length(); x++)
-                if (line.charAt(x) == '&') {
-                    if (barrels.isEmpty()) {
-                        barrels.add(new Barrel(new Position(x, y), true));
-                    }
-                    else {
-                        barrels.add(new Barrel(new Position(x, y), false));
-                    }
-                }
-        }
-        return barrels;
-    }
-
-    @Override
     protected Donkey createDonkey() {
         for (int y = 0; y < lines.size(); y++) {
             String line = lines.get(y);

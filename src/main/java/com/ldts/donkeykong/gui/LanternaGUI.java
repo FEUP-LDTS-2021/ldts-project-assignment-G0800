@@ -13,6 +13,7 @@ import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.ldts.donkeykong.model.base.Position;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -24,9 +25,20 @@ public class LanternaGUI implements GUI {
     }
 
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.getDefault();
+        AWTTerminalFontConfiguration fontConfig = loadDonkeyKongFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
+    }
+
+    public AWTTerminalFontConfiguration loadDonkeyKongFont() throws FontFormatException, IOException {
+        File fontFile = new File("src/main/resources/DKfont.ttf");
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
     private Screen createScreen(Terminal terminal) throws IOException {

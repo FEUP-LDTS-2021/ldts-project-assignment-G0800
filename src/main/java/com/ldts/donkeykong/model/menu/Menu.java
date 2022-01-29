@@ -8,12 +8,12 @@ public class Menu {
     private int currentEntry = 0;
 
     public Menu() {
-        this.entries = Arrays.asList("Play","Instructions","Exit");
+        this.entries = Arrays.asList("Play","Exit");
     }
 
     public void nextEntry() {
         currentEntry++;
-        if(currentEntry > 2) {
+        if(currentEntry > 1) {
             currentEntry = 0;
         }
     }
@@ -21,7 +21,7 @@ public class Menu {
     public void previousEntry() {
         currentEntry--;
         if(currentEntry < 0) {
-            currentEntry = 2;
+            currentEntry = 1;
         }
     }
 
@@ -41,12 +41,8 @@ public class Menu {
         return currentEntry == 0;
     }
 
-    public boolean isSelectedInstructions() {
-        return currentEntry == 1;
-    }
-
     public boolean isSelectedExit() {
-        return currentEntry == 2;
+        return currentEntry == 1;
     }
 
     public int getNumberOfEntries() {

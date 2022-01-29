@@ -171,11 +171,16 @@ public class Arena {
         return false;
     }
 
+
     public boolean isHammer(Position position){
         return hammer != null && hammer.getPosition().equals(position);
     }
 
     public boolean isOilBarrel(Position position){
         return oilBarrel != null && oilBarrel.getPosition().equals(position);
+    }
+
+    public boolean hasStructureBelow(Position position){
+        return isInArena(position) && isStructure(position.getDown());
     }
 }

@@ -30,7 +30,7 @@ public class DonkeyController extends Controller<Arena> {
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        if(time - lastMovement > 500) {
+        if(time - lastMovement > 3500) {
             throwBarrel();
             this.lastMovement = time;
         }

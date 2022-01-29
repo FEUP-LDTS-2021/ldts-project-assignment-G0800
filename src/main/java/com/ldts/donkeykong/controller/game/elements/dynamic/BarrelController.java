@@ -6,18 +6,17 @@ import com.ldts.donkeykong.gui.GUI;
 import com.ldts.donkeykong.model.base.Position;
 import com.ldts.donkeykong.model.game.arena.Arena;
 import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
+import com.ldts.donkeykong.model.game.elements.dynamic.DIRECTION;
 
 import java.io.IOException;
 
 public class BarrelController extends GameController {
 
-    Direction direction;
-    long lastMove;
+    long lastTime;
 
     public BarrelController(Arena arena) {
         super(arena);
-        direction = Direction.RIGHT;
-        lastMove = 0;
+        this.lastTime = 0;
     }
 
     private void moveBarrels() {
@@ -29,19 +28,25 @@ public class BarrelController extends GameController {
     private void moveBarrel(Barrel barrel) {
         if(!getModel().isInArena(barrel.getPosition())) getModel().removeBarrel(barrel);
 
+        if(getModel().getMario().getPosition().equals(barrel.getPosition())) getModel().getMario().setAsDead();
+
         if(barrel.getPosition().equals(new Position(getModel().getHeight()-1,getModel().getWidth()-1)))
             getModel().removeBarrel(barrel);
 
         else if(!getModel().isStructure(barrel.getPosition().getDown()) && getModel().isInArena(barrel.getPosition().getDown())) {
 
             barrel.setPosition(barrel.getPosition().getDown());
-            if(!barrelFalling(barrel) && direction.equals(Direction.RIGHT)) direction = Direction.LEFT;
-            else if(!barrelFalling(barrel) && direction.equals(Direction.LEFT)) direction = Direction.RIGHT;
+            if(!barrel.isFirstDrop()) {
+                if(!barrelFalling(barrel) && barrel.getDirection().equals(DIRECTION.RIGHT)) barrel.changeDirection();
+                else if(!barrelFalling(barrel) && barrel.getDirection().equals(DIRECTION.LEFT)) barrel.changeDirection();
+            }
 
-        } else if(direction.equals(Direction.RIGHT)) {
+        } else if(barrel.getDirection().equals(DIRECTION.RIGHT)) {
             barrel.setPosition(barrel.getPosition().getRight());
-        } else if (direction.equals(Direction.LEFT)) {
+            if(barrel.isFirstDrop()) barrel.deactivateFirstDrop();
+        } else if (barrel.getDirection().equals(DIRECTION.LEFT)) {
             barrel.setPosition(barrel.getPosition().getLeft());
+            if(barrel.isFirstDrop()) barrel.deactivateFirstDrop();
         }
     }
 
@@ -51,11 +56,9 @@ public class BarrelController extends GameController {
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMove > 350) {
+        if(time - lastTime > 350) {
             moveBarrels();
-            this.lastMove = time;
+            this.lastTime = time;
         }
     }
-
-    enum Direction {LEFT,RIGHT}
 }

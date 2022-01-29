@@ -7,6 +7,7 @@ import com.ldts.donkeykong.viewer.game.elements.GameElementViewer;
 public class HammerViewer implements GameElementViewer<Hammer> {
     @Override
     public void draw(Hammer hammer, GUI gui) {
-        gui.drawHammer(hammer.getPosition());
+        if(hammer != null)
+            gui.drawHammer(hammer.getPosition());
     }
 }
