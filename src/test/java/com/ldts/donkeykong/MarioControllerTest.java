@@ -1,4 +1,4 @@
-package controller.game.elements.dynamic;
+package com.ldts.donkeykong;
 
 import com.ldts.donkeykong.controller.game.elements.dynamic.MarioController;
 import com.ldts.donkeykong.model.base.Position;
