@@ -84,7 +84,7 @@ Why we decided to use it:
 - Moving enemies with different movements (barrels and fire enemies)
 
 ## Code Smells and Refactorings
-#Extracting method
+###Extracting method
 We verified that the method jump() in MarioController class is a long method and what it does is check if Mario is not trying to jump in a place where there's a ladder and if not:
 - checks if there's a fire enemy on one of Mario's sides
 - checks if there's a hammer right above Mario's current position
@@ -92,17 +92,17 @@ If one of these two conditions is verified Mario jumps
 
 To remove this smell we could split the method into two function calls, using the Extracting method refactoring: one that would make Mario jump over a fire enemy and another one to make him catch the hammer.
 
-#Dead code
+###Dead code
 Later in the project, we realized we had an unneeded method in the Arena class, isOilBarrel(), which we could solve by simply deleting it.
 
-#Large class
+###Large class
 We also detected that ArenaBuilderLoader is a large class, because we have methods that read the same file multiple times to create each elements of the game and we could simplify it by having a method to read simple elements (Donkey, Mario, Princess, etc.) and two methods to load the more complex ones (Structures and Ladders).
 This could be solved with the Extract Method refactoring and this way there would be only 3 loops repeated
 
-#Extracting variable
+###Extracting variable
 The FireEnemyController and BarrelController classes have statements with **complicated expressions** (eg: some return values and if statements) that are complicated to interpretate, which could be solved by storing the values in variables and using those to simplify the statements, using the **Extract Variable refactoring**.
 
-#Some refactorings that were done
+###Some refactorings that were done
 - In some controllers we had **duplicate code** in the move method, to check if the elements were moving above the structures. We ended up refactoring those move methods by creating a new one called hasStructureBelow in the Arena class.
 
 - We verified that we had a data class (Score class), which only had getters and setters and could be used as a field in Mario class. We solved that by using the **move methods refactoring**.
@@ -110,7 +110,7 @@ The FireEnemyController and BarrelController classes have statements with **comp
 - In Arena class, there are a few boolean methods that had the code smell **Inline Method** and we used the **Speculative Generality refactoring** to solve it.
 
 
-#Tests
+##Tests
 
 ![](images/testshots/testCoverage.png)
 
