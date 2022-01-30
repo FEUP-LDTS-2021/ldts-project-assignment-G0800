@@ -27,31 +27,27 @@ public class BarrelController extends GameController {
 
     private void moveBarrel(Barrel barrel) {
         if(!getModel().isInArena(barrel.getPosition())) getModel().removeBarrel(barrel);
-
-        if(getModel().getMario().getPosition().equals(barrel.getPosition())) getModel().getMario().setAsDead();
+        else if(getModel().getMario().getPosition().equals(barrel.getPosition())) getModel().getMario().setAsDead();
 
         if(barrel.getPosition().equals(new Position(getModel().getHeight()-1,getModel().getWidth()-1)))
             getModel().removeBarrel(barrel);
+        else if(!getModel().hasStructureBelow(barrel.getPosition())) {
+            dropBarrel(barrel);
+        } else {
 
-        else if(!getModel().isStructure(barrel.getPosition().getDown()) && getModel().isInArena(barrel.getPosition().getDown())) {
+            if (barrel.getDirection().equals(DIRECTION.RIGHT)) barrel.setPosition(barrel.getPosition().getRight());
+            else barrel.setPosition(barrel.getPosition().getLeft());
 
-            barrel.setPosition(barrel.getPosition().getDown());
-            if(!barrel.isFirstDrop()) {
-                if(!barrelFalling(barrel) && barrel.getDirection().equals(DIRECTION.RIGHT)) barrel.changeDirection();
-                else if(!barrelFalling(barrel) && barrel.getDirection().equals(DIRECTION.LEFT)) barrel.changeDirection();
-            }
+            if (barrel.isFirstDrop()) barrel.deactivateFirstDrop();
 
-        } else if(barrel.getDirection().equals(DIRECTION.RIGHT)) {
-            barrel.setPosition(barrel.getPosition().getRight());
-            if(barrel.isFirstDrop()) barrel.deactivateFirstDrop();
-        } else if (barrel.getDirection().equals(DIRECTION.LEFT)) {
-            barrel.setPosition(barrel.getPosition().getLeft());
-            if(barrel.isFirstDrop()) barrel.deactivateFirstDrop();
         }
     }
 
-    private boolean barrelFalling(Barrel barrel) {
-        return !getModel().isStructure(barrel.getPosition().getDown());
+    private void dropBarrel(Barrel barrel) {
+        barrel.setPosition(barrel.getPosition().getDown());
+        if(!barrel.isFirstDrop()) {
+            if(getModel().hasStructureBelow(barrel.getPosition())) barrel.changeDirection();
+        }
     }
 
     @Override

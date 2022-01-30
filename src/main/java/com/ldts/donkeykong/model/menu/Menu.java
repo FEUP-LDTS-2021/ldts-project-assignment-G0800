@@ -29,10 +29,6 @@ public class Menu {
         return entries.get(entry);
     }
 
-    public int getCurrentEntry() {
-        return currentEntry;
-    }
-
     public boolean isSelected(int entry) {
         return currentEntry == entry;
     }

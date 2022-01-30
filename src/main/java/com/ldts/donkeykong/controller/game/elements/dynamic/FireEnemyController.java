@@ -19,7 +19,7 @@ public class FireEnemyController extends Controller<Arena> {
         return fireEnemy.getPosition().equals(getModel().getMario().getPosition());
     }
 
-    public void moveFireEnemy(FireEnemy fireEnemy, Position position){
+    private void moveFireEnemy(FireEnemy fireEnemy, Position position){
         if (getModel().hasStructureBelow(position)){
             fireEnemy.setPosition(position);
             if (touchedMario(fireEnemy))
@@ -27,35 +27,39 @@ public class FireEnemyController extends Controller<Arena> {
         }
     }
 
+    private void moveFireEnemies() {
+        Position fireEnemyPosition, nextPosition;
+        for (FireEnemy fireEnemy : getModel().getFireEnemies()){
+            fireEnemyPosition = fireEnemy.getPosition();
+
+            if (marioAtRight(fireEnemy))
+                nextPosition = getModel().hasStructureBelow(fireEnemyPosition.getRight()) ? fireEnemyPosition.getRight() : fireEnemyPosition.getLeft();
+            else if (marioAtLeft(fireEnemy))
+                nextPosition = getModel().hasStructureBelow(fireEnemyPosition.getLeft()) ? fireEnemyPosition.getLeft() : fireEnemyPosition.getRight();
+            else
+                nextPosition = (int) (Math.random() * 2) == 1 ? fireEnemyPosition.getRight() : fireEnemyPosition.getLeft();
+
+            moveFireEnemy(fireEnemy, nextPosition);
+        }
+    }
+
     @Override
     public void step(Application application, GUI.ACTION action, long time) {
         if (time - lastMove > 350){
-            for (FireEnemy f: getModel().getFireEnemies()){
-                Position enemyPosition = f.getPosition();
-                Position nextPosition;
-
-                if (marioAtRight(f))
-                    nextPosition = getModel().hasStructureBelow(enemyPosition.getRight()) ? enemyPosition.getRight() : enemyPosition.getLeft();
-                else if (marioAtLeft(f))
-                    nextPosition = getModel().hasStructureBelow(enemyPosition.getLeft()) ? enemyPosition.getLeft() : enemyPosition.getRight();
-                else
-                    nextPosition = (int) (Math.random() * 2) == 1 ? enemyPosition.getRight() : enemyPosition.getLeft();
-
-                moveFireEnemy(f, nextPosition);
-            }
+            moveFireEnemies();
             this.lastMove = time;
         }
     }
 
-    public boolean isNearMario(FireEnemy fireEnemy){
+    private boolean isNearMario(FireEnemy fireEnemy){
         return fireEnemy.getPosition().getY() == getModel().getMario().getPosition().getY();
     }
 
-    public boolean marioAtLeft(FireEnemy fireEnemy){
+    private boolean marioAtLeft(FireEnemy fireEnemy){
         return isNearMario(fireEnemy) && getModel().getMario().getPosition().getX() < fireEnemy.getPosition().getX();
     }
 
-    public boolean marioAtRight(FireEnemy fireEnemy){
+    private boolean marioAtRight(FireEnemy fireEnemy){
         return isNearMario(fireEnemy) && getModel().getMario().getPosition().getX() > fireEnemy.getPosition().getX();
     }
 }

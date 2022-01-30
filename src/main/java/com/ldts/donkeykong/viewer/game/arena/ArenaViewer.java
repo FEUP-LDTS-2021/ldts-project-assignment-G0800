@@ -23,8 +23,7 @@ public class ArenaViewer extends Viewer<Arena> {
     protected void drawElements(GUI gui) {
         drawElements(gui, getModel().getLadders(), new LadderViewer());
         drawElements(gui, getModel().getStructures(), new StructureViewer());
-        for (int i = 0; i < getModel().getFireEnemies().size(); i++)
-            drawElement(gui, getModel().getFireEnemies().get(i), new FireEnemyViewer());
+        drawElements(gui, getModel().getFireEnemies(), new FireEnemyViewer());
         drawElement(gui, getModel().getMario(), new MarioViewer());
         drawElement(gui, getModel().getDonkey(), new DonkeyViewer());
         drawElement(gui, getModel().getHammer(), new HammerViewer());

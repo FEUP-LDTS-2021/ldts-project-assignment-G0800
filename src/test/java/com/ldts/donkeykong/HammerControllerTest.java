@@ -41,11 +41,7 @@ public class HammerControllerTest {
 
     @BeforeEach
     public void createData() {
-<<<<<<< HEAD:src/test/java/controllerTest/gameTest/elementsTest/dynamicTest/HammerControllerTest.java
-        app = mock(Application.class);
-=======
         app = Mockito.mock(Application.class);
->>>>>>> 53a59bf73b2e66b9338d9ef7fa8461cc62bd3d4a:src/test/java/controller/game/elements/dynamic/HammerControllerTest.java
         arena = new Arena(10,10);
         arena.setBarrels(createBarrels());
         mario = new Mario(new Position(0,4));

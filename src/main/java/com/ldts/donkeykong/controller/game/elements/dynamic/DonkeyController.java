@@ -19,13 +19,10 @@ public class DonkeyController extends Controller<Arena> {
         this.lastMovement = 0;
     }
 
-    public void throwBarrel() {
-        Barrel barrel;
-        List<Barrel> barrels = getModel().getBarrels();
+    private void throwBarrel() {
         Position position = getModel().getDonkey().getPosition().getRight();
-        barrel = barrels.isEmpty() ? new Barrel(position, true) : new Barrel(position, false);
-        barrels.add(barrel);
-        getModel().setBarrels(barrels);
+        Barrel barrel = getModel().getBarrels().isEmpty() ? new Barrel(position, true) : new Barrel(position, false);
+        getModel().getBarrels().add(barrel);
     }
 
     @Override

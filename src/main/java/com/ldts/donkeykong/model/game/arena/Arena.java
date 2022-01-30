@@ -6,7 +6,7 @@ import com.ldts.donkeykong.model.game.elements.dynamic.Barrel;
 import com.ldts.donkeykong.model.game.elements.dynamic.FireEnemy;
 import com.ldts.donkeykong.model.game.elements.dynamic.Hammer;
 import com.ldts.donkeykong.model.game.elements.dynamic.Mario;
-import com.ldts.donkeykong.model.game.elements.nonDynamic.*;
+import com.ldts.donkeykong.model.game.elements.nonDynamic.Stair;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Ladder;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.OilBarrel;
 import com.ldts.donkeykong.model.game.elements.nonDynamic.Princess;
