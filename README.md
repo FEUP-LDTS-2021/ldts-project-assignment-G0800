@@ -5,22 +5,31 @@ DONKEY KONG is played as Mario (the jumping man) and the goal is to defeat Donke
 
 This project was developed by *Gabriel Machado Jr.* (up202008860@edu.fe.up.pt), *Milena Gouveia* (up202008862@edu.fe.up.pt) and *Sofia Moura* (up201907201@edu.fe.up.pt) for LDTS 2021⁄22.
 
+##How to play
+
+You can move the character using
+- `Left arrow` to move left
+- `Right arrow` to move right
+- `Up arrow` to climb ladders
+- `Tab` to jump fire enemies
+
+
+- Mario can only walk on top of the structures
+- Mario has a score that increases every time he jumps over a barrel or gets a hammer
+- Mario can hit barrels or fire enemies every time he grabs the hammer, in a total of 5 hits
+
 ## Screenshots
-### Levels
-(the levels are loaded from files)
+##Menu
 <p align="center" justify="center">
-  <img src="docs/images/screenshots/level1.png"/>
-</p>
-<p align="center">
-  <b><i>Level 1 </i></b>
-</p>
+  <img src="docs/images/screenshots/menu.png"/>
 
 <br>
 <br />
 
+##Game
+(the level is loaded from file)
 <p align="center" justify="center">
-  <img src="docs/images/screenshots/level2.png"/>
-</p>
-<p align="center">
-  <b><i>Level 2 </i></b>
-</p>
+  <img src="docs/images/screenshots/game.png"/>
+
+<br>
+<br />
