@@ -111,14 +111,6 @@ The FireEnemyController and BarrelController classes have statements with **comp
 
 
 ##Tests
-<p align="center" justify="center">
-  <img src="docs/images/testshots/testCoverage.png"/>
+<img src="C:\Users\sofia\Desktop\LDTS\ldts-project-assignment-G0800\docs\images\testshots\testCoverage.png"/>
 
-<br>
-<br />
-
-<p align="center" justify="center">
-  <img src="docs/images/testshots/pitest.png"/>
-
-<br>
-<br />
+<img src="C:\Users\sofia\Desktop\LDTS\ldts-project-assignment-G0800\docs\images\testshots\pitest.png"/>
