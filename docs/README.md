@@ -90,7 +90,7 @@ We verified that the method jump() in MarioController class is a long method and
 - checks if there's a hammer right above Mario's current position
 If one of these two conditions is verified Mario jumps
 
-To remove this smell we could split the method into two function calls, using the Extracting method refactoring: one that would make Mario jump over a fire enemy and another one to make him catch the hammer
+To remove this smell we could split the method into two function calls, using the Extracting method refactoring: one that would make Mario jump over a fire enemy and another one to make him catch the hammer.
 
 ##Dead code
 Later in the project, we realized we had an unneeded method in the Arena class, isOilBarrel(), which we could solve by simply deleting it.
